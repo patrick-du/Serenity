@@ -1,14 +1,42 @@
 import React, { Component } from 'react';
+
+import { AppLoading } from 'expo';
+import * as Font from 'expo-font'
+
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
 import SignUpScreen from './components/Auth/SignUp';
 import LoginScreen from './components/Auth/Login';
 
-//import AuthLoadingScreen from './components/AuthLoading';
-
 export default class App extends Component {
+  state = {
+    fontsAreLoaded: false,
+  };
+
+  async componentWillMount() {
+    await Font.loadAsync({
+      'Rubik-Black': require('./node_modules/@shoutem/ui/fonts/Rubik-Black.ttf'),
+      //'Rubik-BlackItalic': require('./node_modules/@shoutem/ui/fonts/Rubik-BlackItalic.ttf'),
+      'Rubik-Bold': require('./node_modules/@shoutem/ui/fonts/Rubik-Bold.ttf'),
+      //'Rubik-BoldItalic': require('./node_modules/@shoutem/ui/fonts/Rubik-BoldItalic.ttf'),
+      //'Rubik-Italic': require('./node_modules/@shoutem/ui/fonts/Rubik-Italic.ttf'),
+      'Rubik-Light': require('./node_modules/@shoutem/ui/fonts/Rubik-Light.ttf'),
+      //'Rubik-LightItalic': require('./node_modules/@shoutem/ui/fonts/Rubik-LightItalic.ttf'),
+      'Rubik-Medium': require('./node_modules/@shoutem/ui/fonts/Rubik-Medium.ttf'),
+      //'Rubik-MediumItalic': require('./node_modules/@shoutem/ui/fonts/Rubik-MediumItalic.ttf'),
+      'Rubik-Regular': require('./node_modules/@shoutem/ui/fonts/Rubik-Regular.ttf'),
+      //'rubicon-icon-font': require('./node_modules/@shoutem/ui/fonts/rubicon-icon-font.ttf'),
+    });
+
+    this.setState({ fontsAreLoaded: true });
+  }
+
   render() {
+    if(!this.state.fontsAreLoaded) {
+      return <AppLoading />;
+    }
+
     return <AppContainer />
   }
 };
@@ -24,7 +52,6 @@ const AuthStack = createStackNavigator({
 
 const AppContainer = createAppContainer(createSwitchNavigator({ 
   Auth: AuthStack ,
-  //AuthLoading: AuthLoadingScreen
 },    
 { 
   initialRouteName: 'Auth' 

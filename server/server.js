@@ -28,7 +28,7 @@ mongoose
 
 app.use(passport.initialize());
 require("./config/passport")(passport);
-app.use("/api/users", users);
+app.use("/users", users);
 
 const PORT = process.env.PORT || 3000;
 
