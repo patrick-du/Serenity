@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-export default class SignUpScreen extends Component {
-  
-  static navigationOptions = {
-    title: 'Sign Up'
-  };
+export default class WelcomeScreen extends Component {
 
   onPressSignUp = () => {
     this.props.navigation.navigate('SignUp')  

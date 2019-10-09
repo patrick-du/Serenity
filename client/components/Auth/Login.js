@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, TouchableHighlight, StatusBar } from 'react-native';
-import { View, Examples } from '@shoutem/ui';
+import { StyleSheet, Text, TouchableHighlight } from 'react-native';
+import { Screen, View, Examples, NavigationBar, Title, Icon } from '@shoutem/ui';
 
 export default class LoginScreen extends Component {
-  
+  static navigationOptions = {
+    title: 'Login'
+  };
+
   onPressSignUp = () => {
-    this.props.navigation.navigate('SignUp')  
+    this.props.navigation.navigate('SignUp')
   };
 
   onPressLogin = () => {
-    this.props.navigation.navigate('Login')  
+    this.props.navigation.navigate('Login')
   };
 
   fetchTest = () => {
@@ -19,37 +22,37 @@ export default class LoginScreen extends Component {
         'Content-type': 'application/x-www-form-urlencoded'
       },
       body: JSON.stringify({
-        name: 'fetch', 
-        email: 'fetch@gmail.com', 
-        password: 'test123', 
+        name: 'fetch',
+        email: 'fetch@gmail.com',
+        password: 'test123',
         password2: 'test123'
       }),
-    }).then (response => {
+    }).then(response => {
       console.log(response)
     }, error => {
       console.log(error)
-    }
-    /*
-    ).then (function(response){
-      console.log(response.status);
-    }, function(error) {
-      console.log(error)
-      console.log('hi')
-    }*/
-    )
+    })
   };
 
   render() {
     return (
-      <View style={styles.container}>
-        <Examples/>
-        <StatusBar barStyle="default" hidden={false} />
+      <Screen>
+        <View>
+          {/*<NavigationBar
+          leftComponent={<Icon name="sidebar" />}
+          centerComponent={<Title>SERENITY</Title>}
+        /> */}
+        
+        </View>
         <Text>
           <Text style={styles.currentTab} onPress={this.onPressLogin}>Login</Text>
           <Text onPress={this.onPressSignUp}>Sign Up</Text>
         </Text>
         <TouchableHighlight onPress={this.fetchTest}><Text>API Test</Text></TouchableHighlight>
-      </View>
+
+
+      </Screen>
+
     );
   }
 }

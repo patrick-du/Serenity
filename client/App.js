@@ -6,6 +6,8 @@ import * as Font from 'expo-font'
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
+import LoaderScreen from './components/Auth/Loader';
+import WelcomeScreen from './components/Auth/Welcome';
 import SignUpScreen from './components/Auth/SignUp';
 import LoginScreen from './components/Auth/Login';
 
@@ -17,16 +19,11 @@ export default class App extends Component {
   async componentWillMount() {
     await Font.loadAsync({
       'Rubik-Black': require('./node_modules/@shoutem/ui/fonts/Rubik-Black.ttf'),
-      //'Rubik-BlackItalic': require('./node_modules/@shoutem/ui/fonts/Rubik-BlackItalic.ttf'),
       'Rubik-Bold': require('./node_modules/@shoutem/ui/fonts/Rubik-Bold.ttf'),
-      //'Rubik-BoldItalic': require('./node_modules/@shoutem/ui/fonts/Rubik-BoldItalic.ttf'),
-      //'Rubik-Italic': require('./node_modules/@shoutem/ui/fonts/Rubik-Italic.ttf'),
       'Rubik-Light': require('./node_modules/@shoutem/ui/fonts/Rubik-Light.ttf'),
-      //'Rubik-LightItalic': require('./node_modules/@shoutem/ui/fonts/Rubik-LightItalic.ttf'),
       'Rubik-Medium': require('./node_modules/@shoutem/ui/fonts/Rubik-Medium.ttf'),
-      //'Rubik-MediumItalic': require('./node_modules/@shoutem/ui/fonts/Rubik-MediumItalic.ttf'),
       'Rubik-Regular': require('./node_modules/@shoutem/ui/fonts/Rubik-Regular.ttf'),
-      //'rubicon-icon-font': require('./node_modules/@shoutem/ui/fonts/rubicon-icon-font.ttf'),
+      'rubicon-icon-font': require('./node_modules/@shoutem/ui/fonts/rubicon-icon-font.ttf'),
     });
 
     this.setState({ fontsAreLoaded: true });
@@ -36,24 +33,25 @@ export default class App extends Component {
     if(!this.state.fontsAreLoaded) {
       return <AppLoading />;
     }
-
     return <AppContainer />
   }
 };
 
 const AuthStack = createStackNavigator({
+  Welcome: WelcomeScreen,
   SignUp: SignUpScreen, 
   Login: LoginScreen 
 },
 { 
-  initialRouteName: 'Login',
-  
+  initialRouteName: 'Welcome',
+  headerMode: 'none',  
 });
 
 const AppContainer = createAppContainer(createSwitchNavigator({ 
-  Auth: AuthStack ,
+  Auth: AuthStack,
+
 },    
 { 
-  initialRouteName: 'Auth' 
+  initialRouteName: 'Auth', 
 }));
 
