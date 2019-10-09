@@ -18,10 +18,10 @@ export default class WelcomeScreen extends Component {
           <Text style={styles.title}>Let's get started!</Text>
           <Text style={styles.subtitle}>Create an account to continue. We don't sell or share your data with anyone.</Text>
           <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonText} onPress={this.onPressSignUp}>Log in</Text>
+            <Text style={styles.buttonText} onPress={this.onPressSignUp}>Continue</Text>
           </TouchableOpacity>
           <View style={styles.lineStyle}/>
-          <Text style={styles.subtitle}>You don't have an account? <Text style={{color: '#778beb', fontFamily: 'OpenSans-SemiBold'}} onPress={this.onPressLogin}>Sign up here</Text></Text>
+          <Text style={styles.subtitle}>Existing user? <Text style={{color: '#778beb', fontFamily: 'OpenSans-SemiBold'}} onPress={this.onPressLogin}>Log In</Text></Text>
         </View>
     );
   }

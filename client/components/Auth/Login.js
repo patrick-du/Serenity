@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, TouchableHighlight } from 'react-native';
-import { Screen, View, Examples, NavigationBar, Title, Icon } from '@shoutem/ui';
+import { StyleSheet, View, Text, TextInput, TouchableOpacity } from 'react-native';
 
 export default class LoginScreen extends Component {
-  static navigationOptions = {
-    title: 'Login'
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: '',
+      password: '',      
+    }
+  }
 
-  onPressSignUp = () => {
-    this.props.navigation.navigate('SignUp')
-  };
-
-  onPressLogin = () => {
-    this.props.navigation.navigate('Login')
-  };
+  test = () => {
+    console.log(this.state.email);
+    console.log('hi');
+    console.log(this.state.password);
+  }
 
   fetchTest = () => {
     fetch('http://ptsv2.com/t/fetch/post', {
@@ -34,25 +35,22 @@ export default class LoginScreen extends Component {
     })
   };
 
+  
   render() {
     return (
-      <Screen>
-        <View>
-          {/*<NavigationBar
-          leftComponent={<Icon name="sidebar" />}
-          centerComponent={<Title>SERENITY</Title>}
+      <View style={styles.container}>
+        <TextInput
+          placeholder="Email"
+          onchangeText={(text) => {this.setState({text})}}
+          value={this.state.text}
+        />
+        {/* <TextInput
+          placeholder="Password"
+          onchangeText={(text) => {this.setState({password: text})}}
+          value={this.state.text}
         /> */}
-        
-        </View>
-        <Text>
-          <Text style={styles.currentTab} onPress={this.onPressLogin}>Login</Text>
-          <Text onPress={this.onPressSignUp}>Sign Up</Text>
-        </Text>
-        <TouchableHighlight onPress={this.fetchTest}><Text>API Test</Text></TouchableHighlight>
-
-
-      </Screen>
-
+        <TouchableOpacity onPress={this.test}><Text>HiHsdHI</Text></TouchableOpacity>
+      </View>
     );
   }
 }
