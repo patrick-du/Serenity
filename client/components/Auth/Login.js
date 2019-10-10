@@ -6,50 +6,32 @@ export default class LoginScreen extends Component {
     super(props);
     this.state = {
       email: '',
-      password: '',      
-    }
+      password: '',
+    };
   }
 
   test = () => {
     console.log(this.state.email);
-    console.log('hi');
     console.log(this.state.password);
   }
 
-  fetchTest = () => {
-    fetch('http://ptsv2.com/t/fetch/post', {
-      method: 'POST',
-      headers: {
-        'Content-type': 'application/x-www-form-urlencoded'
-      },
-      body: JSON.stringify({
-        name: 'fetch',
-        email: 'fetch@gmail.com',
-        password: 'test123',
-        password2: 'test123'
-      }),
-    }).then(response => {
-      console.log(response)
-    }, error => {
-      console.log(error)
-    })
-  };
 
-  
   render() {
     return (
       <View style={styles.container}>
         <TextInput
           placeholder="Email"
-          onchangeText={(text) => {this.setState({text})}}
-          value={this.state.text}
+          onChangeText={(email) => this.setState({email})}
+          value={this.state.email}
         />
-        {/* <TextInput
+        <TextInput
           placeholder="Password"
-          onchangeText={(text) => {this.setState({password: text})}}
-          value={this.state.text}
-        /> */}
-        <TouchableOpacity onPress={this.test}><Text>HiHsdHI</Text></TouchableOpacity>
+          onChangeText={(password) => this.setState({password})}
+          value={this.state.password}
+        />
+       
+     
+        <TouchableOpacity onPress={this.test}><Text>HiHsdxxHI</Text></TouchableOpacity>
       </View>
     );
   }
@@ -59,10 +41,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 60,
-    //backgroundColor: '#23272A',
+    backgroundColor: '#F6F8FA',
   },
-  currentTab: {
-    fontWeight: 'bold',
-    textDecorationLine: 'underline'
-  }
 });
