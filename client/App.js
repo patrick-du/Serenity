@@ -6,8 +6,6 @@ import * as Font from 'expo-font'
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
-import LoaderScreen from './components/Auth/Loader';
-import WelcomeScreen from './components/Auth/Welcome';
 import SignUpScreen from './components/Auth/SignUp';
 import LoginScreen from './components/Auth/Login';
 
@@ -29,12 +27,11 @@ export default class App extends Component {
       'Roboto-Medium': require('./assets/fonts/Roboto-Medium.ttf'),
       'Roboto-Bold': require('./assets/fonts/Roboto-Bold.ttf'),
 
-      'Rubik-Black': require('./node_modules/@shoutem/ui/fonts/Rubik-Black.ttf'),
-      'Rubik-Bold': require('./node_modules/@shoutem/ui/fonts/Rubik-Bold.ttf'),
-      'Rubik-Light': require('./node_modules/@shoutem/ui/fonts/Rubik-Light.ttf'),
-      'Rubik-Medium': require('./node_modules/@shoutem/ui/fonts/Rubik-Medium.ttf'),
-      'Rubik-Regular': require('./node_modules/@shoutem/ui/fonts/Rubik-Regular.ttf'),
-      'rubicon-icon-font': require('./node_modules/@shoutem/ui/fonts/rubicon-icon-font.ttf'),
+      'Nunito-Light': require('./assets/fonts/Nunito-Light.ttf'),
+      'Nunito-Regular': require('./assets/fonts/Nunito-Regular.ttf'),
+      'Nunito-SemiBold': require('./assets/fonts/Nunito-SemiBold.ttf'),
+      'Nunito-Bold': require('./assets/fonts/Nunito-Bold.ttf'),
+
     });
 
     this.setState({ fontsAreLoaded: true });
@@ -49,12 +46,11 @@ export default class App extends Component {
 };
 
 const AuthStack = createStackNavigator({
-  Welcome: WelcomeScreen,
   SignUp: SignUpScreen, 
   Login: LoginScreen 
 },
 { 
-  initialRouteName: 'Welcome',
+  initialRouteName: 'Login',
   headerMode: 'none',  
 });
 

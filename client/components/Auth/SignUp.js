@@ -12,31 +12,23 @@ export default class SignUpScreen extends Component {
     };
   }
 
-  test = () => {
-    console.log(this.state.name);
-    console.log(this.state.email);
-    console.log(this.state.password);
-    console.log(this.state.password2);
-  }
-
-  // fetchTest = () => {
-  //   fetch('http://ptsv2.com/t/fetch/post', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-type': 'application/x-www-form-urlencoded'
-  //     },
-  //     body: JSON.stringify({
-  //       name: 'fetch',
-  //       email: 'fetch@gmail.com',
-  //       password: 'test123',
-  //       password2: 'test123'
-  //     }),
-  //   }).then(response => {
-  //     console.log(response)
-  //   }, error => {
-  //     console.log(error)
-  //   })
-  // };
+  signup = () => {
+    fetch('http://ptvs2.com/t/fetch/post', {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/x-www-form-urlencoded'
+      },
+      body: JSON.stringify({
+        name: this.state.name,
+        email: this.state.email,
+        password: this.state.password,
+        password2: this.state.password2
+      }),
+    }).then(
+      response => console.log(response),
+      error => console.log(error)
+    )
+  };
 
   render() {
     return (
@@ -61,8 +53,7 @@ export default class SignUpScreen extends Component {
           onChangeText={(password2) => this.setState({ password2 })}
           value={this.state.password2}
         />
-        <TouchableOpacity onPress={this.test}><Text>HiHsdxxHI</Text></TouchableOpacity>
-
+        <TouchableOpacity onPress={this.signup}><Text>Submit</Text></TouchableOpacity>
       </View>
     );
   }
@@ -71,7 +62,8 @@ export default class SignUpScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 60,
-    backgroundColor: '#F6F8FA',
+    paddingVertical: 60,
+    paddingHorizontal: 50,
+    backgroundColor: '#F6F8FA', // basically white colour
   },
 });
