@@ -6,8 +6,8 @@ import * as Font from 'expo-font'
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
-import SignUpScreen from './components/Auth/SignUp';
-import LoginScreen from './components/Auth/Login';
+import SignUpScreen from './components/Screens/SignUp';
+import LoginScreen from './components/Screens/Login';
 
 export default class App extends Component {
   state = {

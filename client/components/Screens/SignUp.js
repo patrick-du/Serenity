@@ -1,27 +1,40 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Image, Text, TextInput, TouchableHighlight, TouchableOpacity } from 'react-native';
 
-export default class LoginScreen extends Component {
+import Header from '../Header';
+import AuthTextInput from '../AuthTextInput';
+
+export default class SignUpScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      name: '',
       email: '',
       password: '',
+      password2: '',
     };
   }
 
-  login = () => {
-    console.log(this.state.email);
-    console.log(this.state.password);
-    //DOESNT WORK YET
-  }
-
-  onPressSignUp = () => {
-    this.props.navigation.navigate('SignUp')
-  };
-
   onPressLogin = () => {
     this.props.navigation.navigate('Login')
+  };
+  
+  signup = () => {
+    fetch('http://ptvs2.com/t/fetch/post', {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/x-www-form-urlencoded'
+      },
+      body: JSON.stringify({
+        name: this.state.name,
+        email: this.state.email,
+        password: this.state.password,
+        password2: this.state.password2
+      }),
+    }).then(
+      response => console.log(response),
+      error => console.log(error)
+    )
   };
 
   render() {
@@ -29,51 +42,41 @@ export default class LoginScreen extends Component {
       <View style={styles.container}>
 
         {/* Title and Logo */}
-        <Text style={styles.title}>Welcome back!</Text>
-        <Text style={styles.subTitle}>Login to your account</Text>
+        <Header title='Register' subtitle='Create your new account'/>
 
         {/* Input Fields*/}
         <View style={{ marginVertical: 40 }}>
+          {/* Name Field */}
+          <View style={{ marginVertical: 10 }}>
+            <AuthTextInput fieldTitle='Name' returnKeyT='next' value={this.state.name}  onChangeT={(name) => this.setState({ name })}  onSubmitT={() => this.emailRef.focus()} autoCap='words'/>
+          </View>
+
           {/* Email Field */}
           <View style={{ marginVertical: 10 }}>
-            <Text style={styles.inputTitle}>Email</Text>
-            <TextInput
-              style={styles.input}
-              returnKeyType='next'
-              onFocus={console.log('hi')}
-              onChangeText={(email) => this.setState({ email })}
-              value={this.state.email}
-              autoCapitalize={false}
-              onSubmitEditing={() => this.passwordRef.focus()}
-            />
+            <AuthTextInput fieldTitle='Email' returnKeyT='next' value={this.state.email}  onChangeT={(email) => this.setState({ email })}  onSubmitT={() => this.passwordRef.focus()} autoCap='none' refTo={emailRef => this.emailRef = emailRef}/>
           </View>
 
           {/* Password Field */}
           <View style={{ marginVertical: 10 }}>
-            <Text style={styles.inputTitle}>Password</Text>
-            <TextInput
-              style={styles.input}
-              returnKeyType='done'
-              onChangeText={(password) => this.setState({ password })}
-              value={this.state.password}
-              autoCorrect={false}
-              secureTextEntry={true}
-              ref={passwordRef => this.passwordRef = passwordRef}
-            />
+            <AuthTextInput fieldTitle='Password' returnKeyT='next' value={this.state.password}  onChangeT={(password) => this.setState({ password })}  onSubmitT={() => this.password2Ref.focus()} secureT={true} refTo={passwordRef => this.passwordRef = passwordRef}/>
           </View>
-          <Text style={styles.subTextRight}>Forgot Password?</Text>
-        </View>
 
+          {/* Password2 Field */}
+          <View style={{ marginVertical: 10 }}>
+            <AuthTextInput fieldTitle='Confirm Password' returnKeyT='done' value={this.state.password2}  onChangeT={(password2) => this.setState({ password2 })} secureT={true} refTo={password2Ref => this.password2Ref = password2Ref}/>
+          </View>
+        </View>
+        
         {/* Register and Login Buttons */}
         <View style={{ marginVertical: 30 }}>
           <View style={{ justifyContent: 'center', alignItems: 'center' }}>
             <TouchableHighlight style={styles.button}>
-              <Text style={styles.buttonText} onPress={this.onPressSignUp}>Login</Text>
+              <Text style={styles.buttonText} onPress={this.onPressSignUp}>Sign Up</Text>
             </TouchableHighlight>
           </View>
           <TouchableOpacity>
             <Text style={styles.subTextCenter}>
-              Create account? <Text style={{ color: '#389EF6' }} onPress={this.onPressSignUp}>Sign up</Text>
+              Already have an account? <Text style={{ color: '#389EF6' }} onPress={this.onPressLogin}>Login</Text>
             </Text>
           </TouchableOpacity>
         </View>
@@ -86,7 +89,7 @@ export default class LoginScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 130,
+    paddingVertical: 130,
     paddingHorizontal: 45,
     backgroundColor: '#FAFAFC', // basically white colour
   },
@@ -94,7 +97,7 @@ const styles = StyleSheet.create({
   title: {
     fontFamily: 'SFProDisplay-Bold',
     fontSize: 30,
-    color: '#343340',
+    color: '#343340', // dark navy colour
   },
 
   subTitle: {
@@ -150,4 +153,5 @@ const styles = StyleSheet.create({
   }
 
 })
+
 
