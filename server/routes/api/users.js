@@ -11,7 +11,7 @@ const validateLoginInput = require("../../validation/login");
 // Load user model
 const User = require("../../models/User");
 
-// @route POST api/users/register
+// @route POST users/register
 // @desc Register the user
 // @access Public
 
@@ -46,7 +46,7 @@ router.post("/register", (req, res) => {
     });
 });
 
-// @route POST api/users/login
+// @route POST users/login
 // @desc Login the user and return JWT
 // @access Public
 
@@ -88,5 +88,18 @@ router.post("/login", (req, res) => {
         });
     });
 });
+
+
+// @route GET users/all
+// @desc Returns all the users in the collection
+// @access Public
+router.get("/all", (req, res) => {
+
+    User.find((err, found) => {
+        if(err) return console.error(err);
+        res.json(found)
+    })
+});
+
 
 module.exports = router;

@@ -21,17 +21,16 @@ export default class App extends Component {
       'OpenSans-SemiBold': require('./assets/fonts/OpenSans-SemiBold.ttf'),
       'OpenSans-Bold': require('./assets/fonts/OpenSans-Bold.ttf'),
 
-      'Roboto-Thin': require('./assets/fonts/Roboto-Thin.ttf'),
-      'Roboto-Light': require('./assets/fonts/Roboto-Light.ttf'),
-      'Roboto-Regular': require('./assets/fonts/Roboto-Regular.ttf'),
-      'Roboto-Medium': require('./assets/fonts/Roboto-Medium.ttf'),
-      'Roboto-Bold': require('./assets/fonts/Roboto-Bold.ttf'),
 
-      'Nunito-Light': require('./assets/fonts/Nunito-Light.ttf'),
-      'Nunito-Regular': require('./assets/fonts/Nunito-Regular.ttf'),
-      'Nunito-SemiBold': require('./assets/fonts/Nunito-SemiBold.ttf'),
-      'Nunito-Bold': require('./assets/fonts/Nunito-Bold.ttf'),
+      'SFProDisplay-Light': require('./assets/fonts/SFProDisplay-Light.ttf'),
+      'SFProDisplay-Regular': require('./assets/fonts/SFProDisplay-Regular.ttf'),
+      'SFProDisplay-Medium': require('./assets/fonts/SFProDisplay-Medium.ttf'),
+      'SFProDisplay-Bold': require('./assets/fonts/SFProDisplay-Bold.ttf'),
 
+      'SFProDisplay-UltraLight': require('./assets/fonts/SFProDisplay-UltraLight.ttf'),
+
+      
+      
     });
 
     this.setState({ fontsAreLoaded: true });

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Image, Text, TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Image, Text, TextInput, TouchableHighlight, TouchableOpacity } from 'react-native';
+
 export default class LoginScreen extends Component {
   constructor(props) {
     super(props);
@@ -12,6 +13,7 @@ export default class LoginScreen extends Component {
   login = () => {
     console.log(this.state.email);
     console.log(this.state.password);
+    //DOESNT WORK YET
   }
 
   onPressSignUp = () => {
@@ -27,42 +29,55 @@ export default class LoginScreen extends Component {
       <View style={styles.container}>
 
         {/* Title and Logo */}
-        <Text style={styles.title}>Serenity</Text>
-        <Image style={styles.logo} source={require('../../assets/apple-logo.png')} />
+        <Text style={styles.title}>Welcome back!</Text>
+        <Text style={styles.subTitle}>Login to your account</Text>
 
-        {/* Email Input Field */}
-        <View style={{ marginVertical: 10, width: '100%' }}>
-          <Text style={styles.inputTitle}>EMAIL</Text>
-          <TextInput
-            style={styles.input}
-            onChangeText={(email) => this.setState({ email })}
-            value={this.state.email}
-            autoCapitalize="none"
-          />
-        </View>
+        {/* Input Fields*/}
+        <View style={{ marginVertical: 40 }}>
+          {/* Email Field */}
+          <View style={{ marginVertical: 10 }}>
+            <Text style={styles.inputTitle}>Email</Text>
+            <TextInput
+              style={styles.input}
+              returnKeyType='next'
+              onFocus={console.log('hi')}
+              onChangeText={(email) => this.setState({ email })}
+              value={this.state.email}
+              autoCapitalize={false}
+              onSubmitEditing={() => this.passwordRef.focus()}
+            />
+          </View>
 
-        {/* Password Input Field */}
-        <View style={{ marginVertical: 10 }}>
-          <Text style={styles.inputTitle}>PASSWORD</Text>
-          <TextInput
-            style={styles.input}
-            onChangeText={(password) => this.setState({ password })}
-            value={this.state.password}
-            autoCapitalize="none"
-            secureTextEntry={true}
-          />
+          {/* Password Field */}
+          <View style={{ marginVertical: 10 }}>
+            <Text style={styles.inputTitle}>Password</Text>
+            <TextInput
+              style={styles.input}
+              returnKeyType='done'
+              onChangeText={(password) => this.setState({ password })}
+              value={this.state.password}
+              autoCorrect={false}
+              secureTextEntry={true}
+              ref={passwordRef => this.passwordRef = passwordRef}
+            />
+          </View>
+          <Text style={styles.subTextRight}>Forgot Password?</Text>
         </View>
 
         {/* Register and Login Buttons */}
-        <View style={{ marginVertical: 20 }}>
-          <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonText} onPress={this.onPressSignUp}>Login Now</Text>
+        <View style={{ marginVertical: 30 }}>
+          <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+            <TouchableHighlight style={styles.button}>
+              <Text style={styles.buttonText} onPress={this.onPressSignUp}>Login</Text>
+            </TouchableHighlight>
+          </View>
+          <TouchableOpacity>
+            <Text style={styles.subTextCenter}>
+              Create account? <Text style={{ color: '#389EF6' }} onPress={this.onPressSignUp}>Sign up</Text>
+            </Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonText} onPress={this.onPressSignUp}>Create Account</Text>
-          </TouchableOpacity>
-          <Text style={styles.subText}>Forgot Password?</Text>
         </View>
+      
       </View>
     );
   }
@@ -71,34 +86,34 @@ export default class LoginScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingVertical: 70,
-    paddingHorizontal: 70,
-    backgroundColor: '#F6F8FA', // basically white colour
+    paddingTop: 130,
+    paddingHorizontal: 45,
+    backgroundColor: '#FAFAFC', // basically white colour
   },
 
   title: {
-    textAlign: 'center',
-    fontFamily: 'Nunito-Bold',
+    fontFamily: 'SFProDisplay-Bold',
     fontSize: 30,
     color: '#343340',
   },
 
-  logo: {
-    width: 200,
-    height: 200,
-    marginVertical: 60,
+  subTitle: {
+    fontFamily: 'SFProDisplay-Regular',
+    fontSize: 16,
+    color: '#95a5a6', // light grey colour
+    marginVertical: 10,
   },
 
   inputTitle: {
-    fontFamily: 'Nunito-Bold',
-    fontSize: 12,
+    fontFamily: 'SFProDisplay-Medium',
+    fontSize: 14,
     color: '#95a5a6', // light grey colour
     marginBottom: 5,
   },
 
   input: {
-    fontFamily: 'Nunito-SemiBold',
-    fontSize: 16,
+    fontFamily: 'SFProDisplay-Light',
+    fontSize: 18,
     width: '100%',
     color: '#343340', // dark navy colour
     borderBottomWidth: 1,
@@ -107,24 +122,31 @@ const styles = StyleSheet.create({
 
   button: {
     backgroundColor: '#389EF6', // blue colour
-    width: 250,
-    borderRadius: 20,
-    padding: 10,
+    width: '100%',
+    borderRadius: 10,
+    padding: 15,
     marginVertical: 10,
   },
 
   buttonText: {
     textAlign: 'center',
-    fontFamily: 'Nunito-SemiBold',
+    fontFamily: 'SFProDisplay-Medium',
     fontSize: 16,
-    color: '#F6F8FA', // basically white colour
+    color: '#FAFAFC', // basically white colour
   },
 
-  subText: {
-    textAlign: 'center',
+  subTextRight: {
     color: '#95a5a6', // light grey colour
-    fontFamily: 'Nunito-SemiBold',
-    fontSize: 12
+    fontFamily: 'SFProDisplay-Regular',
+    fontSize: 14,
+    textAlign: 'right'
+  },
+
+  subTextCenter: {
+    color: '#95a5a6', // light grey colour
+    fontFamily: 'SFProDisplay-Regular',
+    fontSize: 14,
+    textAlign: 'center'
   }
 
 })
