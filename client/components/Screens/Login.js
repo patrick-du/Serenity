@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, TouchableHighlight, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, TouchableHighlight, TouchableOpacity, Button } from 'react-native';
 
 import AuthHeader from '../AuthHeader';
 import AuthTextInput from '../AuthTextInput';
@@ -13,7 +13,7 @@ export default class LoginScreen extends Component {
       password: '',
     };
   }
-
+  
   onPressSignUp = () => {
     this.props.navigation.navigate('SignUp')
   };
@@ -53,7 +53,7 @@ export default class LoginScreen extends Component {
           </View>
           <TouchableOpacity>
             <Text style={styles.subTextCenter}>
-              Create account? <Text style={{ color: '#389EF6' }} onPress={this.onPressSignUp}>Sign up</Text>
+              Create account? <Text style={{ color: '#7268C9' }} onPress={this.onPressSignUp}>Sign up</Text>
             </Text>
           </TouchableOpacity>
         </View>
@@ -66,7 +66,6 @@ export default class LoginScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 100,
     paddingHorizontal: 45,
     backgroundColor: '#FAFAFC', // basically white colour
   },
@@ -101,7 +100,7 @@ const styles = StyleSheet.create({
   },
 
   button: {
-    backgroundColor: '#389EF6', // blue colour
+    backgroundColor: '#7268C9', // purple colour
     width: '100%',
     borderRadius: 10,
     padding: 15,

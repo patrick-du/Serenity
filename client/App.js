@@ -30,15 +30,15 @@ export default class App extends Component {
 
       'SFProDisplay-UltraLight': require('./assets/fonts/SFProDisplay-UltraLight.ttf'),
 
-      
-      
+
+
     });
 
     this.setState({ fontsAreLoaded: true });
   }
 
   render() {
-    if(!this.state.fontsAreLoaded) {
+    if (!this.state.fontsAreLoaded) {
       return <AppLoading />;
     }
     return <AppContainer />
@@ -46,29 +46,41 @@ export default class App extends Component {
 };
 
 const AuthStack = createStackNavigator({
-  SignUp: SignUpScreen, 
-  Login: LoginScreen 
+  SignUp: SignUpScreen,
+  Login: LoginScreen
 },
-{ 
-  initialRouteName: 'Login',
-  headerMode: 'none',  
-});
+  {
+    initialRouteName: 'Login',
+    defaultNavigationOptions: {
+      headerStyle: {
+        elevation: 0,
+        backgroundColor: '#FAFAFC',
+      },
+      headerTintColor: '#95a5a6',
+    }
+  });
 
 const DashboardStack = createStackNavigator({
   Dashboard: DashboardScreen,
 },
-{
-  initialRouteName: 'Dashboard',
-  headerMode: 'none',  
-});
+  {
+    initialRouteName: 'Dashboard',
+    defaultNavigationOptions: {
+      headerStyle: {
+        elevation: 0,
+        backgroundColor: '#FAFAFC',
+      },
+      headerTintColor: '#95a5a6',
+    }
+  });
 
 
-const AppContainer = createAppContainer(createSwitchNavigator({ 
+const AppContainer = createAppContainer(createSwitchNavigator({
   Auth: AuthStack,
   Dashboard: DashboardStack
 
-},    
-{ 
-  initialRouteName: 'Auth', 
-}));
+},
+  {
+    initialRouteName: 'Auth',
+  }));
 
