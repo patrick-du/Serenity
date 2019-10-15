@@ -14,7 +14,7 @@ export default class AuthTextInput extends Component {
                     ref={this.props.refTo}
                     autoCapitalize={this.props.autoCap}
                     onSubmitEditing={this.props.onSubmitT} 
-                    secureText={this.props.secureT}
+                    secureTextEntry={this.props.secureT}
                 />
             </View>
         )

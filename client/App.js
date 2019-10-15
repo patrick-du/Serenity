@@ -9,6 +9,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import SignUpScreen from './components/Screens/SignUp';
 import LoginScreen from './components/Screens/Login';
 
+import DashboardScreen from './components/Screens/Dashboard';
 export default class App extends Component {
   state = {
     fontsAreLoaded: false,
@@ -53,8 +54,18 @@ const AuthStack = createStackNavigator({
   headerMode: 'none',  
 });
 
+const DashboardStack = createStackNavigator({
+  Dashboard: DashboardScreen,
+},
+{
+  initialRouteName: 'Dashboard',
+  headerMode: 'none',  
+});
+
+
 const AppContainer = createAppContainer(createSwitchNavigator({ 
   Auth: AuthStack,
+  Dashboard: DashboardStack
 
 },    
 { 

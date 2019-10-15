@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Image, Text, TextInput, TouchableHighlight, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, TouchableHighlight, TouchableOpacity } from 'react-native';
 
-import Header from '../Header';
+import AuthHeader from '../AuthHeader';
 import AuthTextInput from '../AuthTextInput';
 
 
@@ -27,27 +27,19 @@ export default class LoginScreen extends Component {
       <View style={styles.container}>
 
         {/* Title and Logo */}
-        <Header title='Welcome back!' subtitle='Login to your account'/>
-  
+        <AuthHeader title='Welcome back!' subtitle='Login to your account' />
+
         {/* Input Fields*/}
         <View style={{ marginVertical: 40 }}>
 
           {/* Email Field */}
           <View style={{ marginVertical: 10 }}>
-            <AuthTextInput fieldTitle='Email' value={this.state.email}  onChangeT={(email) => this.setState({ email })}  onSubmitT={() => this.passwordRef.focus()} autoCap='none'/>
+            <AuthTextInput fieldTitle='Email' value={this.state.email} onChangeT={(email) => this.setState({ email })} onSubmitT={() => this.passwordRef.focus()} autoCap='none' />
           </View>
 
           {/* Password Field */}
           <View style={{ marginVertical: 10 }}>
-            <Text style={styles.inputTitle}>Password</Text>
-            <TextInput
-              style={styles.input}
-              returnKeyType='done'
-              onChangeText={(password) => this.setState({ password })}
-              value={this.state.password}
-              secureTextEntry={true}
-              ref={passwordRef => this.passwordRef = passwordRef}
-            />
+            <AuthTextInput fieldTitle='Password' returnKeyT='done' value={this.state.password} onChangeT={(password) => this.setState({ password })} secureT={true} refTo={passwordRef => this.passwordRef = passwordRef} />
           </View>
           <Text style={styles.subTextRight}>Forgot Password?</Text>
         </View>
@@ -65,7 +57,7 @@ export default class LoginScreen extends Component {
             </Text>
           </TouchableOpacity>
         </View>
-      
+
       </View>
     );
   }
@@ -74,7 +66,7 @@ export default class LoginScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 130,
+    paddingTop: 100,
     paddingHorizontal: 45,
     backgroundColor: '#FAFAFC', // basically white colour
   },

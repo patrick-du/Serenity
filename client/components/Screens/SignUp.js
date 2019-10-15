@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Image, Text, TextInput, TouchableHighlight, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, TouchableHighlight, TouchableOpacity } from 'react-native';
 
-import Header from '../Header';
+import AuthHeader from '../AuthHeader';
 import AuthTextInput from '../AuthTextInput';
 
 export default class SignUpScreen extends Component {
@@ -15,12 +15,21 @@ export default class SignUpScreen extends Component {
     };
   }
 
+  byPass = () => {
+    this.props.navigation.navigate('Dashboard')
+  }
+
   onPressLogin = () => {
     this.props.navigation.navigate('Login')
   };
   
   signup = () => {
-    fetch('http://ptvs2.com/t/fetch/post', {
+    console.log(this.state.name)
+    console.log(this.state.email)
+    console.log(this.state.password)
+    console.log(this.state.password2)
+    fetch('http://192.168.0.20:3000/users/register', {
+    //fetch('http://ptvs2.com/t/fetch/post', {
       method: 'POST',
       headers: {
         'Content-type': 'application/x-www-form-urlencoded'
@@ -42,7 +51,7 @@ export default class SignUpScreen extends Component {
       <View style={styles.container}>
 
         {/* Title and Logo */}
-        <Header title='Register' subtitle='Create your new account'/>
+        <AuthHeader title='Register' subtitle='Create your new account'/>
 
         {/* Input Fields*/}
         <View style={{ marginVertical: 40 }}>
@@ -71,7 +80,7 @@ export default class SignUpScreen extends Component {
         <View style={{ marginVertical: 30 }}>
           <View style={{ justifyContent: 'center', alignItems: 'center' }}>
             <TouchableHighlight style={styles.button}>
-              <Text style={styles.buttonText} onPress={this.onPressSignUp}>Sign Up</Text>
+              <Text style={styles.buttonText} onPress={this.byPass}>Sign Up</Text>
             </TouchableHighlight>
           </View>
           <TouchableOpacity>
@@ -89,7 +98,7 @@ export default class SignUpScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingVertical: 130,
+    paddingVertical: 100,
     paddingHorizontal: 45,
     backgroundColor: '#FAFAFC', // basically white colour
   },
