@@ -11,3 +11,25 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+@font-face {
+  font-family: 'SFProDisplay-UltraLight';
+  src: local('SFProDisplay-UltraLight'), url(./fonts/SFProDisplay-UltraLight.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'SFProDisplay-Light';
+  src: local('SFProDisplay-Light'), url(./fonts/SFProDisplay-Light.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'SFProDisplay-Regular';
+  src: local('SFProDisplay-Regular'), url(./fonts/SFProDisplay-Regular.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'SFProDisplay-Medium';
+  src: local('SFProDisplay-Medium'), url(./fonts/SFProDisplay-Medium.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'SFProDisplay-Bold';
+  src: local('SFProDisplay-Bold'), url(./fonts/SFProDisplay-Bold.ttf) format('truetype');
+}
+
