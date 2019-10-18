@@ -1,22 +1,21 @@
 import React, { Component } from 'react';
-import { Container, Row, Form, Button } from 'react-bootstrap';
+import { Container, Row, Spinner } from 'react-bootstrap';
 
-import ExerciseDisplay from '../Exercises/ExerciseDisplay';
+import UserDisplay from './UserDisplay';
 import Loader from '../Loader';
 
 
-export default class Exercises extends Component {
+export default class Community extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            exercises: [],
-            isReady: false
+            users: [],
+            isReady: false,
         };
     }
 
-    async getExercises() {
-        let id = '5da5e393dcb7870017ecf79f'
-        await fetch(`http://patrickdu-serenity-server.herokuapp.com/users/${id}/exercises`, {
+    async getUsers() {
+        await fetch('https://patrickdu-serenity-server.herokuapp.com/users/all', {
             method: 'GET',
             mode: 'cors',
             headers: {
@@ -26,14 +25,13 @@ export default class Exercises extends Component {
         })
             .then(response => response.json())
             .then(data => {
-                setTimeout(() => this.setState({ exercises: data, isReady: true }), 200);
+                setTimeout(() => this.setState({ users: data, isReady: true }), 200);
             })
             .catch(error => { console.log(error) });
     }
 
-
     componentDidMount() {
-        this.getExercises();
+        this.getUsers()
     }
 
     render() {
@@ -43,12 +41,14 @@ export default class Exercises extends Component {
                     <Loader />
                 </Container>
             )
+
         } else if (this.state.isReady) {
             return (
                 <Container className="middleCol">
-                    Exercises
-                    <ExerciseDisplay exercises={this.state.exercises}/>
+                    Community
+                    <UserDisplay users={this.state.users}/>
                 </Container>
+
             )
         }
 

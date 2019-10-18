@@ -7,14 +7,13 @@ import Icon from '../../assets/favicon.ico'
 
 export default class SideNav extends Component {
 
-    
     render() {
         return (
             <Container className="sideNav">
                 <img src={Icon} className="mx-auto"/>
                 <Link to="/schedule" className="linkdec">
-                    <Row className="sideNavItem">
-                        <p className="mx-auto">
+                    <Row className="sideNavItem" onClick={this.active}>
+                        <p className="mx-auto" id="test">
                             <i class="far fa-calendar" /> Schedule
                         </p>
                     </Row>                </Link>
@@ -28,6 +27,13 @@ export default class SideNav extends Component {
                     <Row className="sideNavItem">
                         <p className="mx-auto">
                         <i class="fas fa-bolt"></i> Exercises
+                        </p>
+                    </Row>
+                </Link>
+                <Link to="/community" className="linkdec">
+                    <Row className="sideNavItem">
+                        <p className="mx-auto">
+                        <i class="fas fa-users"></i> Community
                         </p>
                     </Row>
                 </Link>
