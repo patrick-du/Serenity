@@ -1,0 +1,29 @@
+.authBox {
+    margin: 100px 20%;
+    padding: 5%;
+    background-color: white;
+    box-shadow: 0 0 5px #ccc;
+    border-radius: 10px;
+}
+
+.authTitle {
+    font-family: 'SFProDisplay-Medium';
+    font-size: 20px;
+}
+
+.authSubTitle {
+    font-family: 'SFProDisplay-Light';
+    color: #95a5a6;
+    font-size: 18px;
+}
+
+.authButton {
+    color: white;
+    background-color: #a29bfe;
+    border-color: #a29bfe;
+}
+
+.authButton:hover {
+    background-color: #6c5ce7;
+    border-color: #6c5ce7;
+}

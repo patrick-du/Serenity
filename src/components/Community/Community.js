@@ -15,7 +15,7 @@ export default class Community extends Component {
     }
 
     async getUsers() {
-        await fetch('https://patrickdu-serenity-server.herokuapp.com/users/all', {
+        await fetch('http://localhost:3000/users/all', {
             method: 'GET',
             mode: 'cors',
             headers: {
@@ -44,7 +44,7 @@ export default class Community extends Component {
 
         } else if (this.state.isReady) {
             return (
-                <Container className="middleCol">
+                <Container className="middleCol overflow-auto">
                     Community
                     <UserDisplay users={this.state.users}/>
                 </Container>

@@ -16,7 +16,7 @@ export default class Exercises extends Component {
 
     async getExercises() {
         let id = '5da5e393dcb7870017ecf79f'
-        await fetch(`http://patrickdu-serenity-server.herokuapp.com/users/${id}/exercises`, {
+        await fetch(`http://localhost:3000/users/${id}/exercises`, {
             method: 'GET',
             mode: 'cors',
             headers: {
@@ -46,8 +46,8 @@ export default class Exercises extends Component {
         } else if (this.state.isReady) {
             return (
                 <Container className="middleCol">
-                    Exercises
-                    <ExerciseDisplay exercises={this.state.exercises}/>
+                    <p className="dashboardTitleText">Exercises</p>
+                    <ExerciseDisplay exercises={this.state.exercises} id="5da5e393dcb7870017ecf79f"/>
                 </Container>
             )
         }

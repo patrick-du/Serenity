@@ -1,0 +1,36 @@
+.middleCol {
+    padding: 50px;
+    background-color: #FAFAFA;
+    height: 100vh;
+}
+
+.middleColSpinner {
+    color: #6c5ce7;
+    flex: 1;
+    align-self:'center'
+}
+
+.rightCol {
+    padding: 50px;
+    box-shadow: 5px 5px 0 0 #ccc;
+    height: 100vh;
+}
+
+
+/* Sidebar Scroller */
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+/* Track */
+::-webkit-scrollbar-track {
+    border-radius: 5px;
+}
+  
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #cbc7fa;
+    border-radius: 5px;
+}
