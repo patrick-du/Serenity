@@ -24,3 +24,25 @@ p {
     margin: 0;
 }
 
+.buttonOutline {
+    border: 1px solid #0984e3;
+    background-color: #FAFAFA;
+    color: #0984e3;
+}
+
+.buttonOutline:hover {
+    border: 1px solid #FAFAFA;
+    background-color: #0984e3;
+    color: #FAFAFA;
+}
+
+.buttonDarken {
+    border: 1px solid #0984e3;
+    background-color: #0984e3;
+    color: #FAFAFA;
+}
+
+.buttonDarken:hover {
+    border: 1px solid #0573c7;
+    background-color: #0573c7;
+}

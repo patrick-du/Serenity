@@ -37,17 +37,17 @@ export default class Community extends Component {
     render() {
         if (!this.state.isReady) {
             return (
-                <Container className="middleCol">
+                <Row noGutters={true}>
                     <Loader />
-                </Container>
+                </Row>
             )
 
         } else if (this.state.isReady) {
             return (
-                <Container className="middleCol overflow-auto">
+                <Row noGutters={true} className="overflow-auto">
                     Community
-                    <UserDisplay users={this.state.users}/>
-                </Container>
+                    <UserDisplay users={this.state.users} />
+                </Row>
 
             )
         }

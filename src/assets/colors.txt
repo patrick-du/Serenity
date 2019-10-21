@@ -1,0 +1,9 @@
+light blue #cfe5fc
+
+primary blue #0984e3
+
+darker blue #0573c7
+
+subtitles mid grey #95a5a6
+
+background light grey #FAFAFA

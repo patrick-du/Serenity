@@ -15,13 +15,13 @@ export default class Authentication extends Component {
                 <Row noGutters={true}>
                     <Col style={{padding: '10px'}}>
                         <Link to="/register">
-                            <Button className="authButton" style={{ width: '100%', height: '8rem' }}>New User</Button>
+                            <Button className="buttonDarken" style={{ width: '100%', height: '8rem' }}>New User</Button>
                         </Link>
 
                     </Col>
                     <Col style={{padding: '10px'}}> 
                         <Link to="/login">
-                            <Button className="authButton" style={{ width: '100%', height: '8rem' }}>Existing User</Button>
+                            <Button className="buttonDarken" style={{ width: '100%', height: '8rem' }}>Existing User</Button>
                         </Link>
                     </Col>
                 </Row>

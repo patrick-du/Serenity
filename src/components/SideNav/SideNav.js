@@ -12,7 +12,7 @@ export default class SideNav extends Component {
             <Container className="sideNav">
                 <Row noGutters={true} className="mb-5">
                     <a href="https://patrickdu.com" target="_blank" className="mx-auto">
-                        <img src={Icon}/>
+                        <img src={Icon} />
                     </a>
                 </Row>
                 <Link to="/schedule" className="linkdec">
@@ -20,13 +20,15 @@ export default class SideNav extends Component {
                         <p className="mx-auto" id="test">
                             <i class="far fa-calendar" /> Schedule
                         </p>
-                    </Row>                </Link>
+                    </Row>
+                </Link>
                 <Link to="/workouts" className="linkdec">
                     <Row className="sideNavItem">
                         <p className="mx-auto">
                             <i class="fas fa-dumbbell"></i> Workouts
                         </p>
-                    </Row>                </Link>
+                    </Row>
+                </Link>
                 <Link to="/exercises" className="linkdec">
                     <Row className="sideNavItem">
                         <p className="mx-auto">
@@ -41,10 +43,10 @@ export default class SideNav extends Component {
                         </p>
                     </Row>
                 </Link>
-                <Link to="/profile" className="linkdec">
+                <Link to="/account" className="linkdec">
                     <Row className="sideNavItem">
                         <p className="mx-auto">
-                            <i class="far fa-user" /> Profile
+                            <i class="far fa-user" /> Account
                         </p>
                     </Row>
                 </Link>

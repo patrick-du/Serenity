@@ -39,16 +39,16 @@ export default class Exercises extends Component {
     render() {
         if (!this.state.isReady) {
             return (
-                <Container className="middleCol">
+                <Row noGutters={true}>
                     <Loader />
-                </Container>
+                </Row>
             )
         } else if (this.state.isReady) {
             return (
-                <Container className="middleCol">
+                <Row noGutters={true}>
                     <p className="dashboardTitleText">Exercises</p>
-                    <ExerciseDisplay exercises={this.state.exercises} id="5da5e393dcb7870017ecf79f"/>
-                </Container>
+                    <ExerciseDisplay exercises={this.state.exercises} id="5da5e393dcb7870017ecf79f" />
+                </Row>
             )
         }
 

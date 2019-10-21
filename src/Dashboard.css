@@ -1,21 +1,19 @@
-.middleCol {
-    padding: 50px;
+.rightCol {
+    padding: 55px 120px !important;
     background-color: #FAFAFA;
     height: 100vh;
 }
 
-.middleColSpinner {
-    color: #6c5ce7;
+.rightColTitle {
+    color: #0984e3;
+    font-size: 25px;
+}
+
+.rightColSpinner {
+    color: #0984e3;
     flex: 1;
     align-self:'center'
 }
-
-.rightCol {
-    padding: 50px;
-    box-shadow: 5px 5px 0 0 #ccc;
-    height: 100vh;
-}
-
 
 /* Sidebar Scroller */
 /* width */
@@ -31,6 +29,6 @@
   
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #cbc7fa;
+    background: #0984e3;
     border-radius: 5px;
 }

@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 
-import { BrowserRouter as Redirect } from 'react-router-dom';
-
-import { Form, Button } from 'react-bootstrap';
+import { Row, Form, Button } from 'react-bootstrap';
 
 export default class Register extends Component {
     constructor(props) {
@@ -15,7 +13,6 @@ export default class Register extends Component {
         };
 
         this.handleChange = this.handleChange.bind(this);
-
     }
 
     handleChange(event) {
@@ -49,7 +46,6 @@ export default class Register extends Component {
     };
 
     render() {
-
         return (
             <React.Fragment>
                 <div className="mt-1 mb-5">
@@ -92,7 +88,10 @@ export default class Register extends Component {
                             onChange={this.handleChange}
                             placeholder="Confirm password" />
                     </Form.Group>
-                    <Button onClick={this.handleSubmit}>Register</Button>
+
+                    <Row noGutters={true} className="mt-5">
+                        <Button className="buttonDarken mx-auto authButton" onClick={this.handleSubmit}>Register</Button>
+                    </Row>
                 </Form>
             </React.Fragment>
 

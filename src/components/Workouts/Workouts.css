@@ -1,5 +1,18 @@
 .workoutScreen {
     background-color: #FAFAFA;
     height: 100vh;
+}
 
+.workoutBox {
+    box-shadow: 0 0 5px #ccc;
+    height: 150px;
+}
+
+.workoutBoxTitle {
+    font-size: 20px;
+}
+
+.workoutBoxSubtitle {
+    font-size: 16px;
+    color: #95a5a6;
 }

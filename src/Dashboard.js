@@ -6,7 +6,7 @@ import Schedule from './components/Schedule/Schedule';
 import Workouts from './components/Workouts/Workouts';
 import Exercises from './components/Exercises/Exercises';
 import Community from './components/Community/Community';
-import Profile from './components/Profile/Profile';
+import Account from './components/Account/Account';
 
 import './components/Loader.css';
 import './Dashboard.css';
@@ -15,7 +15,7 @@ import './components/Schedule/Schedule.css';
 import './components/Workouts/Workouts.css';
 import './components/Exercises/Exercises.css';
 import './components/Community/Community.css'
-import './components/Profile/Profile.css';
+import './components/Account/Account.css';
 
 import { Container, Row, Col } from 'react-bootstrap';
 
@@ -30,21 +30,14 @@ export default class Dashboard extends Component {
                         <Col sm={2} md={2} lg={2}>
                             <SideNav />
                         </Col>
-                        <Col sm={7} md={7} lg={7}>
+                        <Col sm={10} md={10} lg={10} className="rightCol overflow-auto">
                             <Switch>
                                 <Route exact path="/schedule" component={Schedule} />
                                 <Route exact path="/workouts" component={Workouts} />
                                 <Route exact path="/exercises" component={Exercises} />
                                 <Route exact path="/community" component={Community} />
-                                <Route exact path="/profile" component={Profile} />
+                                <Route exact path="/account" component={Account} />
                             </Switch>
-                        </Col>
-                        <Col sm={3} md={3} lg={3}>
-                            <Container className="rightCol">
-                                user picture 
-                                user profile (update info)
-                                log out button
-                            </Container>
                         </Col>
                     </Row>
                 </Container>
