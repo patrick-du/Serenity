@@ -1,30 +1,13 @@
 import React, { Component } from 'react';
 import { Table } from 'react-bootstrap';
 
-export default class ExerciseDisplay extends Component {
+export default class SerenityExerciseDisplay extends Component {
     constructor(props) {
         super(props);
         this.state = {
             exercises: [],
             isReady: false
         };
-    }
-
-    // NOT WORKING
-    async deleteExercise() {
-        await fetch(`http://localhost:3000/users/${this.props._id}/exercises/delete`, {
-            method: 'POST',
-            mode: 'cors',
-            headers: {
-                "Accept": "*/*",
-                "Content-Type": "application/json"
-            },
-            body: {
-                exerciseId: this.props.exercises._id
-            }
-        })
-            .then(response => console.log(response.json()))
-            .catch(error => { console.log(error) });
     }
 
     newExercise = () => {
@@ -37,9 +20,9 @@ export default class ExerciseDisplay extends Component {
                 <thead>
                     <tr>
                         <th>Name</th>
-                        <th>Sets</th>
-                        <th>Reps</th>
-                        <th>Delete</th>
+                        <th>Description</th>
+                        <th>equipmentType</th>
+                        <th>createdBy</th>
                         <th><i class="fas fa-plus-circle" onClick={this.newExercise} /></th>
                     </tr>
                 </thead>
@@ -48,8 +31,9 @@ export default class ExerciseDisplay extends Component {
                         return (
                             <tr>
                                 <td> {exercise.name ? exercise.name : "-"} </td>
-                                <td> {exercise.sets ? exercise.sets : "-"} </td>
-                                <td> {exercise.reps ? exercise.reps : "-"} </td>
+                                <td> {exercise.description ? exercise.description : "-"} </td>
+                                <td> {exercise.equipmentType ? exercise.equipmentType : "-"} </td>
+                                <td> {exercise.createdBy ? exercise.createdBy : "-"} </td>
                                 {/*  <td> <i class="fas fa-cross" onClick={this.deleteExercise} /></td>*/}
 
                             </tr>

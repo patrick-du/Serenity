@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Container, Row, Form, Button } from 'react-bootstrap';
+import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 
-import ExerciseDisplay from '../Exercises/ExerciseDisplay';
+import SerenityExerciseDisplay from './SerenityExerciseDisplay';
 import Loader from '../Loader';
 
 
@@ -15,8 +15,7 @@ export default class Exercises extends Component {
     }
 
     async getExercises() {
-        let id = '5da5e393dcb7870017ecf79f'
-        await fetch(`http://localhost:3000/users/${id}/exercises`, {
+        await fetch(`http://localhost:3000/exercises`, {
             method: 'GET',
             mode: 'cors',
             headers: {
@@ -45,10 +44,20 @@ export default class Exercises extends Component {
             )
         } else if (this.state.isReady) {
             return (
-                <Row noGutters={true}>
-                    <p className="dashboardTitleText">Exercises</p>
-                    <ExerciseDisplay exercises={this.state.exercises} id="5da5e393dcb7870017ecf79f" />
+
+                <Row noGutters={true} >
+                    <Col >
+                        <Row noGutters={true}>
+                            <Col><p className="rightColTitle">Exercises</p></Col>
+                            <Col className="text-right"><Button className="buttonOutline" onClick={this.newExercise}>+ New Exercise</Button></Col>
+                        </Row>
+                        <hr />
+
+                        <SerenityExerciseDisplay exercises={this.state.exercises} id="5da5e393dcb7870017ecf79f" />
+
+                    </Col>
                 </Row>
+
             )
         }
 
