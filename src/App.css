@@ -46,3 +46,45 @@ p {
     border: 1px solid #0573c7;
     background-color: #0573c7;
 }
+
+.buttonOutlineSuccess {
+    border: 1px solid #10ac84;
+    background-color: #FAFAFA;
+    color: #10ac84;
+}
+
+.buttonOutlineSuccess:hover {
+    border: 1px solid #FAFAFA;
+    background-color: #10ac84;
+    color: #FAFAFA;
+}
+
+.buttonOutlineSuccess:active {
+    border: 1px solid #FAFAFA;
+    background-color: #10ac84;
+    color: #FAFAFA;
+}
+
+.buttonOutlineDanger {
+    border: 1px solid #10ac84;
+    background-color: #FAFAFA;
+    color: #10ac84;
+}
+
+.buttonOutlineDanger:hover {
+    border: 1px solid #FAFAFA;
+    background-color: #e74c3c;
+    color: #FAFAFA;
+}
+
+.buttonOutlineDanger:active {
+    border: 1px solid #FAFAFA;
+    background-color: #e74c3c;
+    color: #FAFAFA;
+}
+
+.standardBox {
+    box-shadow: 0 0 5px #ccc;
+    padding: 2em;
+    border-radius: 10px;
+}

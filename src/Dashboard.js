@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import SideNav from './components/SideNav/SideNav';
 import Schedule from './components/Schedule/Schedule';
 import Workouts from './components/Workouts/Workouts';
+import NewWorkout from './components/Workouts/NewWorkout';
 import Exercises from './components/Exercises/Exercises';
 import Community from './components/Community/Community';
 import Account from './components/Account/Account';
@@ -34,6 +35,7 @@ export default class Dashboard extends Component {
                             <Switch>
                                 <Route exact path="/schedule" component={Schedule} />
                                 <Route exact path="/workouts" component={Workouts} />
+                                <Route exact path="/newWorkout" component={NewWorkout} />
                                 <Route exact path="/exercises" component={Exercises} />
                                 <Route exact path="/community" component={Community} />
                                 <Route exact path="/account" component={Account} />

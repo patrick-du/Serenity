@@ -25,7 +25,7 @@ export default class Register extends Component {
     }
 
     handleSubmit = (e) => {
-        fetch('http://localhost:3000/users/register', {
+        fetch('http://localhost:3000/register', {
             method: 'POST',
             mode: 'cors',
             headers: {
@@ -54,7 +54,6 @@ export default class Register extends Component {
                 </div>
                 <Form>
                     <Form.Group controlId="formBasicName">
-                        <Form.Label>Name</Form.Label>
                         <Form.Control
                             name="name"
                             type="name"
@@ -63,7 +62,6 @@ export default class Register extends Component {
                     </Form.Group>
 
                     <Form.Group controlId="formBasicEmail">
-                        <Form.Label>Email address</Form.Label>
                         <Form.Control
                             name="email"
                             type="email"
@@ -72,7 +70,6 @@ export default class Register extends Component {
                     </Form.Group>
 
                     <Form.Group controlId="formBasicPassword">
-                        <Form.Label>Password</Form.Label>
                         <Form.Control
                             name="password"
                             type="password"
@@ -81,7 +78,6 @@ export default class Register extends Component {
                     </Form.Group>
 
                     <Form.Group controlId="formBasicPassword">
-                        <Form.Label>Confirm Password</Form.Label>
                         <Form.Control
                             name="password2"
                             type="password"

@@ -6,7 +6,8 @@
 
 .rightColTitle {
     color: #0984e3;
-    font-size: 25px;
+    font-size: 20px;
+    
 }
 
 .rightColSpinner {
@@ -18,7 +19,7 @@
 /* Sidebar Scroller */
 /* width */
 ::-webkit-scrollbar {
-    width: 5px;
+    width: 6px;
     height: 5px;
   }
 

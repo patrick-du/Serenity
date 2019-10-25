@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 
 import { Row, Form, Button } from 'react-bootstrap';
+import { BrowserRouter as Link } from 'react-router-dom';
 
 export default class Login extends Component {
-    
+
     constructor(props) {
         super(props);
         this.state = {
@@ -25,7 +26,7 @@ export default class Login extends Component {
 
     // NEED TO CHANGE THIS SPECIFICALLY FOR LOGIN AND HANDLE JWT
     handleSubmit = (e) => {
-        fetch('http://localhost:3000/users/register', {
+        fetch('http://localhost:3000/login', {
             method: 'POST',
             mode: 'cors',
             headers: {
@@ -35,14 +36,19 @@ export default class Login extends Component {
         })
             .then(response => {
                 if (response.status == 200) {
-                    alert("Success!")
-                    this.props.history.push("/login");
+                    return response.json()
+
                 } else {
                     alert("Error! Try again.")
                     this.props.history.push("/");
                 }
             })
-            .catch(error => console.log(error))
+            .then(data => {
+                console.log("donkey")
+            })
+
+            .catch(e => console.log(e))
+
     };
 
     render() {
@@ -71,12 +77,12 @@ export default class Login extends Component {
                             placeholder="Enter password" />
                     </Form.Group>
 
-                   
+
                     <Row noGutters={true} className="mt-5">
                         <Button className="buttonDarken mx-auto authButton" onClick={this.handleSubmit}>Login</Button>
                     </Row>
                 </Form>
-            </React.Fragment>
+            </React.Fragment >
 
 
         );
