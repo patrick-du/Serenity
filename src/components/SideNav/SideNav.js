@@ -15,41 +15,42 @@ export default class SideNav extends Component {
                         <img src={Icon} />
                     </a>
                 </Row>
-                <Link to="/schedule" className="linkdec">
+                <Link to="/dashboard/schedule" className="linkdec">
                     <Row className="sideNavItem" onClick={this.active}>
                         <p className="mx-auto" id="test">
                             <i class="far fa-calendar" /> Schedule
                         </p>
                     </Row>
                 </Link>
-                <Link to="/workouts" className="linkdec">
+                <Link to="/dashboard/workouts" className="linkdec">
                     <Row className="sideNavItem">
                         <p className="mx-auto">
                             <i class="fas fa-dumbbell"></i> Workouts
                         </p>
                     </Row>
                 </Link>
-                <Link to="/exercises" className="linkdec">
+                <Link to="/dashboard/exercises" className="linkdec">
                     <Row className="sideNavItem">
                         <p className="mx-auto">
                             <i class="fas fa-bolt"></i> Exercises
                         </p>
                     </Row>
                 </Link>
-                <Link to="/community" className="linkdec">
+                <Link to="/dashboard/community" className="linkdec">
                     <Row className="sideNavItem">
                         <p className="mx-auto">
                             <i class="fas fa-users"></i> Community
                         </p>
                     </Row>
                 </Link>
-                <Link to="/account" className="linkdec">
+                <Link to="/dashboard/account" className="linkdec">
                     <Row className="sideNavItem">
                         <p className="mx-auto">
                             <i class="far fa-user" /> Account
                         </p>
                     </Row>
                 </Link>
+                
             </Container>
         )
     }

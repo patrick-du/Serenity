@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Row, Form, Button } from 'react-bootstrap';
+import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 
 export default class Register extends Component {
     constructor(props) {
@@ -47,7 +47,11 @@ export default class Register extends Component {
 
     render() {
         return (
-            <React.Fragment>
+            <Container className="app" fluid={true}>
+            <Row noGutters={true}>
+                <Col sm={2} md={2} lg={2} />
+                <Col sm={8} md={8} lg={8}>
+                    <div className="authBox">
                 <div className="mt-1 mb-5">
                     <p className="authTitle text-center">Create new account</p>
                     <p className="authSubTitle text-center">Enter your credentials below</p>
@@ -89,7 +93,12 @@ export default class Register extends Component {
                         <Button className="buttonDarken mx-auto authButton" onClick={this.handleSubmit}>Register</Button>
                     </Row>
                 </Form>
-            </React.Fragment>
+            </div>
+                </Col>
+                <Col sm={2} md={2} lg={2} />
+
+            </Row>
+        </Container>
 
 
         );

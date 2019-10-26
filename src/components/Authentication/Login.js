@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 
-import { Row, Form, Button } from 'react-bootstrap';
+import axios from "axios";
+
+
+import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import { BrowserRouter as Link } from 'react-router-dom';
 
 export default class Login extends Component {
@@ -10,6 +13,7 @@ export default class Login extends Component {
         this.state = {
             email: '',
             password: '',
+            message: '',
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -24,65 +28,68 @@ export default class Login extends Component {
         })
     }
 
-    // NEED TO CHANGE THIS SPECIFICALLY FOR LOGIN AND HANDLE JWT
     handleSubmit = (e) => {
-        fetch('http://localhost:3000/login', {
-            method: 'POST',
-            mode: 'cors',
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(this.state),
-        })
-            .then(response => {
-                if (response.status == 200) {
-                    return response.json()
-
-                } else {
-                    alert("Error! Try again.")
-                    this.props.history.push("/");
+        const { email, password } = this.state;
+        axios.post('http://localhost:3000/login', { email, password })
+            .then((res) => {
+                localStorage.setItem('jwtToken', res.data.token);
+                this.setState({ message: '' });
+                this.props.history.push('/dashboard')
+            })
+            .catch((error) => {
+                if (error.response.status === 400) {
+                    console.log(error.response.data);
                 }
-            })
-            .then(data => {
-                console.log("donkey")
-            })
+                if (error.response.status === 401) {
+                    console.log(error.response.data.msg)
+                    this.setState({ message: 'Login Failed. Username or password does not match.' });
+                }
 
-            .catch(e => console.log(e))
-
+            });
     };
 
     render() {
+        const { email, password, message } = this.state;
         return (
-            <React.Fragment>
-                <div className="mt-1 mb-5">
-                    <p className="authTitle text-center">Welcome back</p>
-                    <p className="authSubTitle text-center">Please sign in to continue</p>
-                </div>
-                <Form>
-                    <Form.Group controlId="formBasicEmail">
-                        <Form.Label>Email address</Form.Label>
-                        <Form.Control
-                            name="email"
-                            type="email"
-                            onChange={this.handleChange}
-                            placeholder="Enter email" />
-                    </Form.Group>
+            <Container className="app" fluid={true}>
+                <Row noGutters={true}>
+                    <Col sm={2} md={2} lg={2} />
+                    <Col sm={8} md={8} lg={8}>
+                        <div className="authBox">
+                            <div className="mt-1 mb-5">
+                                <p className="authTitle text-center">Welcome back</p>
+                                <p className="authSubTitle text-center">Please sign in to continue</p>
+                            </div>
+                            <Form>
+                                <Form.Group controlId="formBasicEmail">
+                                    <Form.Label>Email address</Form.Label>
+                                    <Form.Control
+                                        name="email"
+                                        type="email"
+                                        onChange={this.handleChange}
+                                        placeholder="Enter email" />
+                                </Form.Group>
 
-                    <Form.Group controlId="formBasicPassword">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control
-                            name="password"
-                            type="password"
-                            onChange={this.handleChange}
-                            placeholder="Enter password" />
-                    </Form.Group>
+                                <Form.Group controlId="formBasicPassword">
+                                    <Form.Label>Password</Form.Label>
+                                    <Form.Control
+                                        name="password"
+                                        type="password"
+                                        onChange={this.handleChange}
+                                        placeholder="Enter password" />
+                                </Form.Group>
 
 
-                    <Row noGutters={true} className="mt-5">
-                        <Button className="buttonDarken mx-auto authButton" onClick={this.handleSubmit}>Login</Button>
-                    </Row>
-                </Form>
-            </React.Fragment >
+                                <Row noGutters={true} className="mt-5">
+                                    <Button className="buttonDarken mx-auto authButton" onClick={this.handleSubmit}>Login</Button>
+                                </Row>
+                            </Form>
+                        </div>
+                    </Col>
+                    <Col sm={2} md={2} lg={2} />
+
+                </Row>
+            </Container>
 
 
         );
