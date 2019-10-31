@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-
-import axios from "axios";
+import axios from 'axios';
 
 
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
@@ -38,13 +37,11 @@ export default class Login extends Component {
             })
             .catch((error) => {
                 if (error.response.status === 400) {
-                    console.log(error.response.data);
-                }
-                if (error.response.status === 401) {
-                    console.log(error.response.data.msg)
+                    alert(error.response.data);
+                } else if (error.response.status === 401) {
+                    alert(error.response.data.msg)
                     this.setState({ message: 'Login Failed. Username or password does not match.' });
                 }
-
             });
     };
 

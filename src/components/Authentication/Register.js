@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from "axios";
 
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 
@@ -25,26 +26,20 @@ export default class Register extends Component {
     }
 
     handleSubmit = (e) => {
-        fetch('http://localhost:3000/register', {
-            method: 'POST',
-            mode: 'cors',
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(this.state),
+        const { name, email, password, password2 } = this.state;
+        axios.post('http://localhost:3000/register', { name, email, password, password2 })
+        .then((res) => {
+            alert("Success!")
+            this.props.history.push('/login')
         })
-            .then(response => {
-                if (response.status == 200) {
-                    alert("Success!")
-                    this.props.history.push("/login");
-                } else {
-                    alert("Error! Try again.")
-                    this.props.history.push("/");
-                }
-            })
-            .catch(error => console.log(error))
+        .catch((error) => {
+            if (error.response.status === 400) {
+                console.log(error.response.data);
+            } 
+        })
     };
 
+    
     render() {
         return (
             <Container className="app" fluid={true}>

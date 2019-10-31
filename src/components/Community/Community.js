@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Container, Row, Spinner } from 'react-bootstrap';
+import axios from 'axios';
+
+import { Container, Row, Col, Spinner } from 'react-bootstrap';
 
 import UserDisplay from './UserDisplay';
 import Loader from '../Loader';
@@ -14,21 +16,16 @@ export default class Community extends Component {
         };
     }
 
-    async getUsers() {
-        await fetch('http://localhost:3000/users/all', {
-            method: 'GET',
-            mode: 'cors',
-            headers: {
-                "Accept": "*/*",
-                "Content-Type": "application/json"
-            },
-        })
-            .then(response => response.json())
-            .then(data => {
-                setTimeout(() => this.setState({ users: data, isReady: true }), 200);
+    getUsers = () => {
+        axios.get('http://localhost:3000/users')
+            .then((res) => {
+                setTimeout(() => this.setState({ users: res.data, isReady: true }), 200);
             })
-            .catch(error => { console.log(error) });
+            .catch((e) => {
+                console.log(e)
+            })
     }
+
 
     componentDidMount() {
         this.getUsers()
@@ -37,16 +34,18 @@ export default class Community extends Component {
     render() {
         if (!this.state.isReady) {
             return (
-                <Row noGutters={true}>
-                    <Loader />
+                <Row noGutters={true} >
+                    <Col >
+                        <Loader />
+                    </Col>
                 </Row>
             )
-
         } else if (this.state.isReady) {
             return (
-                <Row noGutters={true} className="overflow-auto">
-                    Community
-                    <UserDisplay users={this.state.users} />
+                <Row noGutters={true}>
+                    <Col>
+                        <UserDisplay users={this.state.users} />
+                    </Col>
                 </Row>
 
             )

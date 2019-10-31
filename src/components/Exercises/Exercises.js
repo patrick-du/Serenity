@@ -60,7 +60,9 @@ export default class Exercises extends Component {
         // if (!this.state.isReady) {
         //     return (
         //         <Row noGutters={true}>
-        //             <Loader />
+        //             <Col>
+        //                 <Loader />
+        //             </Col>
         //         </Row>
         //     )
         // } else if (this.state.isReady) {
