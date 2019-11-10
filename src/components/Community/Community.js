@@ -26,7 +26,6 @@ export default class Community extends Component {
             })
     }
 
-
     componentDidMount() {
         this.getUsers()
     }

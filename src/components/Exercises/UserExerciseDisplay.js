@@ -51,9 +51,8 @@ export default class UserExerciseDisplay extends Component {
                                         return (
                                             <tr>
                                                 <td> {exercise.name ? exercise.name : "-"} </td>
-                                                <td> {exercise.description ? exercise.description : "-"} </td>
                                                 <td> {exercise.equipmentType ? exercise.equipmentType : "-"} </td>
-                                                <td> {exercise.createdBy ? exercise.createdBy : "-"} </td>
+                                                <td> {exercise.primaryMuscles ? exercise.primaryMuscles: "-"} </td>
                                             </tr>
                                         )
                                     })}
