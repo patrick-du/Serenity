@@ -15,17 +15,10 @@ export default class SideNav extends Component {
                         <img src={Icon} />
                     </a>
                 </Row>
-                <Link to="/dashboard/schedule" className="linkdec">
+                <Link to="/dashboard/journal" className="linkdec">
                     <Row className="sideNavItem" onClick={this.active}>
                         <p className="mx-auto" id="test">
-                            <i class="far fa-calendar" /> Schedule
-                        </p>
-                    </Row>
-                </Link>
-                <Link to="/dashboard/workouts" className="linkdec">
-                    <Row className="sideNavItem">
-                        <p className="mx-auto">
-                            <i class="fas fa-dumbbell"></i> Workouts
+                            <i class="far fa-calendar" /> Journal
                         </p>
                     </Row>
                 </Link>

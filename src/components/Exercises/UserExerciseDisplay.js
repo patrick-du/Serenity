@@ -38,7 +38,7 @@ export default class UserExerciseDisplay extends Component {
                             </Col>
                         </Row>
                         <Accordion.Collapse eventKey="0">
-                            <Table className="p-4 mt-3 mb-5">
+                            <Table className=" mt-3 mb-5">
                                 <thead>
                                     <tr>
                                         <th>Name</th>

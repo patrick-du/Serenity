@@ -86,5 +86,6 @@ p {
 .standardBox {
     box-shadow: 0 0 5px #ccc;
     padding: 2em;
-    border-radius: 10px;
+    margin: 2em 0em;
+    border-radius: 0px;
 }

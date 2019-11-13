@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Row, Col, Form, Button, Accordion } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 import axios from 'axios';
 
 import UserExerciseDisplay from './UserExerciseDisplay';
@@ -28,26 +28,8 @@ export default class Exercises extends Component {
             })
     }
 
-    // async getSerenityExercises() {
-    //     await fetch(`http://localhost:3000/exercises`, {
-    //         method: 'GET',
-    //         mode: 'cors',
-    //         headers: {
-    //             "Accept": "*/*",
-    //             "Content-Type": "application/json"
-    //         },
-    //     })
-    //         .then(response => response.json())
-    //         .then(data => {
-    //             setTimeout(() => this.setState({ exercises: data, isReady: true }), 200);
-    //         })
-    //         .catch(error => { console.log(error) });
-    // }
-
-
     componentDidMount() {
         this.getUserExercises();
-        //this.getSerenityExercises();
     }
 
     render() {
@@ -61,11 +43,9 @@ export default class Exercises extends Component {
             )
         } else if (this.state.isReady) {
             return (
-
                 <Row noGutters={true} >
                     <Col >
                         <UserExerciseDisplay exercises={this.state.userExercises}/>
-                        {/* <SerenityExerciseDisplay exercises={this.state.serenityExercises} /> */}
                     </Col>
                 </Row>
 

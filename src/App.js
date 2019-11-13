@@ -5,23 +5,18 @@ import axios from 'axios';
 // Bootstrap Imports
 import { Container, Row, Col } from 'react-bootstrap';
 
-
-// Dashboard Component Imports
-import SideNav from './components/SideNav/SideNav';
-import Schedule from './components/Schedule/Schedule';
-import Workouts from './components/Workouts/Workouts';
-import NewWorkout from './components/Workouts/NewWorkout';
-import Exercises from './components/Exercises/Exercises';
-import Community from './components/Community/Community';
-import Account from './components/Account/Account';
+// Auth Component Imports
+import Welcome from './components/Authentication/Welcome';
+import Register from './components/Authentication/Register';
+import Login from './components/Authentication/Login';
+import Dashboard from './Dashboard/Dashboard';
 
 // CSS Imports
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './components/Loader.css';
-import './Dashboard.css';
+import './Dashboard/Dashboard.css';
 import './components/SideNav/SideNav.css';
-import './components/Schedule/Schedule.css';
-import './components/Workouts/Workouts.css';
+import './components/Journal/Journal.css';
 import './components/Exercises/Exercises.css';
 import './components/Community/Community.css'
 import './components/Account/Account.css';
@@ -40,24 +35,13 @@ export default class App extends Component {
   render() {
     return (
       <Router>
-        <Container className="appDash" fluid={true}>
-          <Row noGutters={true}>
-            <Col sm={2} md={2} lg={2}>
-              <SideNav />
-            </Col>
-            <Col sm={10} md={10} lg={10} className="rightCol overflow-auto">
-              <Switch>
-                <Route exact path="/dashboard/schedule" component={Schedule} />
-                <Route exact path="/dashboard/workouts" component={Workouts} />
-                <Route exact path="/dashboard/newWorkout" component={NewWorkout} />
-                <Route exact path="/dashboard/exercises" component={Exercises} />
-                <Route exact path="/dashboard/community" component={Community} />
-                <Route exact path="/dashboard/account" component={Account} />
-              </Switch>
-            </Col>
-          </Row>
-        </Container>
-      </Router>
+        <Switch>
+            <Route exact path="/dashboard" component={Dashboard} />
+            <Route exact path="/" component={Welcome} />
+            <Route exact path="/register" component={Register} />
+            <Route exact path="/login" component={Login} />
+        </Switch>
+    </Router>
     )
   }
 }

@@ -19,15 +19,15 @@ import Login from './components/Authentication/Login';
 
 import App from './App';
 
-ReactDOM.render(
-    <Router>
-        <Switch>
-            <Route exact path="/dashboard" component={App} />
-            <Route exact path="/" component={Welcome} />
-            <Route exact path="/register" component={Register} />
-            <Route exact path="/login" component={Login} />
-        </Switch>
-    </Router>,
+ReactDOM.render(<App/>,
+    // <Router>
+    //     <Switch>
+    //         <Route exact path="/dashboard" component={App} />
+    //         <Route exact path="/" component={Welcome} />
+    //         <Route exact path="/register" component={Register} />
+    //         <Route exact path="/login" component={Login} />
+    //     </Switch>
+    // </Router>,
     document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
