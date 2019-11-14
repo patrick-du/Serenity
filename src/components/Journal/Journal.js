@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import axios from 'axios';
 
+import SectionTitle from '../Reusable/SectionTitle';
+import CreateNewJournal from '../Journal/CreateNewJournal';
 import JournalEntryDisplay from '../Journal/JournalEntryDisplay';
-import Loader from '../Loader';
+import Loader from '../Reusable/Loader';
 
 
 export default class Journal extends Component {
@@ -18,16 +20,16 @@ export default class Journal extends Component {
 
     async getUserJournals() {
         axios.get(`http://localhost:3000/users/5db1abf4e12aa5442862e8a6/journals`)
-        .then((res) => {
-            setTimeout(() => this.setState({ journalEntries: res.data, isReady: true }), 200);
-        })
-        .catch((e) => {
-            console.log(e)
-        })
+            .then((res) => {
+                setTimeout(() => this.setState({ journalEntries: res.data, isReady: true }), 200);
+            })
+            .catch((e) => {
+                console.log(e)
+            })
 
     }
 
-    
+
     componentDidMount() {
         this.getUserJournals();
     }
@@ -35,7 +37,7 @@ export default class Journal extends Component {
     render() {
         if (!this.state.isReady) {
             return (
-                <Row noGutters={true}>
+                <Row noGutters={true} className="mt-5">
                     <Col>
                         <Loader />
                     </Col>
@@ -45,7 +47,9 @@ export default class Journal extends Component {
             return (
                 <Row noGutters={true}>
                     <Col>
-                        <JournalEntryDisplay journals={this.state.journalEntries}/>
+                        <SectionTitle title="Mood Journal"/>
+                        <CreateNewJournal/>
+                        <JournalEntryDisplay journals={this.state.journalEntries} />
                     </Col>
                 </Row>
             )

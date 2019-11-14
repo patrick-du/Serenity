@@ -16,7 +16,7 @@ import Account from './components/Account/Account';
 
 // CSS Imports
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './components/Loader.css';
+import './components/Reusable/Loader.css';
 import './components/Navbar/TopNavbar.css';
 import './components/Journal/Journal.css';
 import './components/Exercises/Exercises.css';

@@ -11,7 +11,7 @@ export default class TopNavbar extends Component {
                 </Link>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="mx-auto">
+                    <Nav className="ml-auto">
                         <Link to="/journal" className="linkdec navLink">
                             <Nav.Link href="#journal">Journal</Nav.Link>
                         </Link>

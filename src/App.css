@@ -45,6 +45,13 @@ p {
     margin: 0;
 }
 
+.sectionTitle {
+    margin: 0;
+    font-family: 'SFProDisplay-Medium';
+    text-decoration-line: underline;
+    text-decoration-color: #ffdd59;
+}
+
 .buttonOutline {
     border: 1px solid #0984e3;
     background-color: #FAFAFA;

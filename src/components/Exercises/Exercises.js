@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import axios from 'axios';
 
+import SectionTitle from '../Reusable/SectionTitle';
 import UserExerciseDisplay from './UserExerciseDisplay';
-import Loader from '../Loader';
+import Loader from '../Reusable/Loader';
 
 
 export default class Exercises extends Component {
@@ -42,8 +43,9 @@ export default class Exercises extends Component {
             )
         } else if (this.state.isReady) {
             return (
-                <Row noGutters={true} >
+                <Row noGutters={true}>
                     <Col >
+                        <SectionTitle title="Fitness"/>
                         <UserExerciseDisplay exercises={this.state.userExercises}/>
                     </Col>
                 </Row>
