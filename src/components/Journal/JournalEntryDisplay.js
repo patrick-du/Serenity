@@ -19,12 +19,10 @@ export default class JournalEntryDisplay extends Component {
                         return (
                             <div className="standardBox">
                                 <Row noGutters={true}>
-                                    <Col><p className="rightColTitle">{journal.date}</p></Col>
+                                    <Col><p className="JED-date">{journal.date}</p></Col>
                                     <Col className="text-right">
                                         <Link to="/newExercise" >
-                                            <Button className="buttonOutlineSuccess mr-3">
-                                                <i class="fas fa-edit"></i>
-                                            </Button>
+                                            <i class="fas fa-edit"></i>
                                         </Link>
                                     </Col>
                                 </Row>

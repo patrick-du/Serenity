@@ -20,10 +20,10 @@ export default class CreateNewJournal extends Component {
                             <div className="standardBox">
                                 <Accordion defaultActiveKey="0">
                                     <Row noGutters={true}>
-                                        <Col><p className="rightColTitle">{journal.date}</p></Col>
+                                        <Col><p className="">{journal.date}</p></Col>
                                         <Col className="text-right">
                                             <Link to="/newExercise" >
-                                                <Button className="buttonOutlineSuccess mr-3">
+                                                <Button className="mr-3">
                                                     <i class="fas fa-plus"></i>
                                                 </Button>
                                             </Link>

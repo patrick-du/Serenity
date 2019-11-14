@@ -33,7 +33,7 @@ export default class Login extends Component {
             .then((res) => {
                 localStorage.setItem('jwtToken', res.data.token);
                 this.setState({ message: '' });
-                this.props.history.push('/dashboard')
+                this.props.history.push('/home')
             })
             .catch((error) => {
                 if (error.response.status === 400) {

@@ -1,15 +1,36 @@
 .app {
     margin: 0;
-    padding: 0;
+    padding: 50px 50px;
     height: 100vh;
     font-family: 'SFProDisplay-Regular';
 }
 
-.appDash {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    font-family: 'SFProDisplay-Regular';
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+    .app {
+        padding: 50px 80px;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .app {
+        padding: 50px 100px;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .app {
+        padding: 60px 150px;
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .app {
+        padding: 60px 300px;
+    }
 }
 
 .linkdec {
@@ -65,27 +86,28 @@ p {
     color: #FAFAFA;
 }
 
-.buttonOutlineDanger {
-    border: 1px solid #10ac84;
-    background-color: #FAFAFA;
-    color: #10ac84;
-}
-
-.buttonOutlineDanger:hover {
-    border: 1px solid #FAFAFA;
-    background-color: #e74c3c;
-    color: #FAFAFA;
-}
-
-.buttonOutlineDanger:active {
-    border: 1px solid #FAFAFA;
-    background-color: #e74c3c;
-    color: #FAFAFA;
-}
 
 .standardBox {
     box-shadow: 0 0 5px #ccc;
     padding: 2em;
     margin: 2em 0em;
-    border-radius: 0px;
+    border-radius: 5px;
+}
+
+/* Sidebar Scroller */
+/* width */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 5px;
+  }
+
+/* Track */
+::-webkit-scrollbar-track {
+    border-radius: 5px;
+}
+  
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #0984e3;
+    border-radius: 5px;
 }

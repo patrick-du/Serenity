@@ -21,10 +21,10 @@ export default class UserExerciseDisplay extends Component {
                 <div className="standardBox">
                     <Accordion defaultActiveKey="0">
                         <Row noGutters={true}>
-                            <Col><p className="rightColTitle">Exercise Collection</p></Col>
+                            <Col><p className="">Exercise Collection</p></Col>
                             <Col className="text-right">
                                 <Link to="/newExercise" >
-                                    <Button className="buttonOutlineSuccess mr-3">
+                                    <Button className="mr-3">
                                         <i class="fas fa-plus"></i>
                                     </Button>
                                 </Link>
@@ -66,10 +66,10 @@ export default class UserExerciseDisplay extends Component {
             return (
                 <div className="standardBox">
                     <Row noGutters={true}>
-                        <Col><p className="rightColTitle">Add your first exercise! </p></Col>
+                        <Col><p className="">Add your first exercise! </p></Col>
                         <Col className="text-right">
                             <Link to="/newExercise">
-                                <Button className="buttonOutlineSuccess">
+                                <Button className="">
                                     <i class="fas fa-plus"></i>
                                 </Button>
                             </Link>

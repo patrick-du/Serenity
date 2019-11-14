@@ -11,7 +11,7 @@ export default class Welcome extends Component {
         axios.get('http://localhost:3000/authCheck')
             .then(res => {
                 console.log("Authorized.")
-                this.props.history.push("/dashboard");
+                this.props.history.push("/home");
             })
             .catch((error) => {
                 console.log(error);

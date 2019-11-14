@@ -3,7 +3,6 @@ import { Row, Col } from 'react-bootstrap';
 import axios from 'axios';
 
 import UserExerciseDisplay from './UserExerciseDisplay';
-import SerenityExerciseDisplay from './SerenityExerciseDisplay';
 import Loader from '../Loader';
 
 
