@@ -27,7 +27,7 @@ export default class JournalEntryDisplay extends Component {
                                     </Col>
                                 </Row>
                                 <Row noGutters={true} className="my-2 p-3">
-                                    {journal.body}
+                                    {journal.entryBody}
                                 </Row>
                                 <Row noGutters={true}>
                                     <div className="mt-2 mb-2">

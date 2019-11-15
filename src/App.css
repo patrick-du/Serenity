@@ -1,6 +1,6 @@
 .app {
     margin: 0;
-    padding: 50px 50px;
+    padding: 30px 30px;
     height: 100vh;
     font-family: 'SFProDisplay-Regular';
 }
@@ -22,14 +22,14 @@
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
     .app {
-        padding: 60px 150px;
+        padding: 60px 15%;
     }
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
     .app {
-        padding: 60px 300px;
+        padding: 60px 25%;
     }
 }
 
