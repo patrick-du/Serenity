@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Table, Row, Col, Button, Accordion } from 'react-bootstrap';
+import { Table, Row, Col, Button, Accordion, Modal } from 'react-bootstrap';
 import { Link } from 'react-router-dom'
 
 export default class JournalEntryDisplay extends Component {
@@ -7,7 +7,7 @@ export default class JournalEntryDisplay extends Component {
         super(props);
         this.state = {
             journals: [],
-            hasJournals: true
+            hasJournals: true,
         };
     }
 
@@ -26,12 +26,14 @@ export default class JournalEntryDisplay extends Component {
                                         </Link>
                                     </Col>
                                 </Row>
-                                <Row noGutters={true} className="my-2 p-3">
-                                    {journal.entryBody}
+                                <hr />
+                                <Row noGutters={true} className="my-2 ">
+                                    {journal.entry}
                                 </Row>
+                                <hr />
                                 <Row noGutters={true}>
-                                    <div className="mt-2 mb-2">
-                                        {journal.rating}
+                                    <div>
+                                        Stress: {journal.stressRating} | Depression: {journal.depressionRating} | Anxiety: {journal.anxietyRating}
                                     </div>
                                 </Row>
                             </div >

@@ -49,7 +49,20 @@ p {
     margin: 0;
     font-family: 'SFProDisplay-Medium';
     text-decoration-line: underline;
-    text-decoration-color: #ffdd59;
+    text-decoration-color: #F4CF5C;
+}
+
+.buttonPrimaryDarken {
+    font-family: 'SFProDisplay-Medium';
+    border: 1px solid #ffeaa7;
+    background-color: #ffeaa7;
+    color: #060605;
+}
+
+.buttonPrimaryDarken:hover {
+    border: 1px solid #f5e09f;
+    background-color: #f5e09f;
+    color: #060605;
 }
 
 .buttonOutline {

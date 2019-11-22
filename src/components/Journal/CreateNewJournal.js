@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
-import { Table, Row, Col, Button, Accordion, Form } from 'react-bootstrap';
+import { Table, Row, Col, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom'
 import axios from "axios";
-import Slider from 'rc-slider';
-import 'rc-slider/assets/index.css';
+import Swal from 'sweetalert2'
 
 export default class CreateNewJournal extends Component {
     constructor(props) {
         super(props);
         this.state = {
             isActive: false,
-            entryBody: '',
+            entry: '',
+            stressRating: 0,
+            depressionRating: 0,
+            anxietyRating: 0,
         };
         this.handleChange = this.handleChange.bind(this);
     }
@@ -23,59 +25,65 @@ export default class CreateNewJournal extends Component {
         })
     }
 
-    handleSubmit = (e) => {
-        const { entryBody } = this.state;
-        axios.post('http://localhost:3000/users/5db1abf4e12aa5442862e8a6/journals', {
-            entryBody: entryBody,
-            rating: 4
+    newJournalEntryModal = (e) => {
+        let success = false
+        Swal.mixin({
+            confirmButtonText: 'Next',
+            showCancelButton: true,
+            progressSteps: ['1', '2', '3', '4'],
+        }).queue([
+            { title: 'How was your day?', input: 'textarea', inputPlaceholder: 'Required...' },
+            { title: 'Stress Rating', input: 'range', inputValue: 50 },
+            { title: 'Depression Rating', input: 'range', inputValue: 50 },
+            { title: 'Anxiety Rating', input: 'range', inputValue: 50 }
+        ]).then((result) => {
+            if (result.value) {
+                let journalEntry = {
+                    entry: result.value[0],
+                    stressRating: result.value[1],
+                    depressionRating: result.value[2],
+                    anxietyRating: result.value[3]
+                }
+                Swal.fire({
+                    title: 'Your Entry',
+                    html: `${journalEntry.entry} <br/> Stress: ${journalEntry.stressRating} <br/> Depression: ${journalEntry.depressionRating} <br/> Anxiety: ${journalEntry.anxietyRating}`,
+                    showCancelButton: true,
+                    confirmButtonText: 'Submit',
+                    preConfirm: async (createNewEntry) => {
+                        await axios.post('http://localhost:3000/users/5db1abf4e12aa5442862e8a6/journals', journalEntry)
+                            .then((res) => { success = true })
+                            .catch((error) => { success = false })
+                    },
+                    allowOutsideClick: () => !Swal.isLoading()
+                }).then(() => {
+                    if (success == true) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: `Entry created!`
+                        })
+                    } else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: `Entry failed!`
+                        })
+                    }
+                })
+            }
         })
-            .then((res) => {
-                console.log(res)
-                window.location.reload();
-            })
-            .catch((error) => {
-                console.log(error);
-            })
-    };
+    }
+
     render() {
         return (
-            <Accordion>
-                <div className="standardBox">
-                    <Row noGutters={true}>
-                        <Col>
-                            New Entry
-                        </Col>
-                        <Col className="text-right">
-                            <Accordion.Toggle as={Button} variant="link" eventKey="0" className="p-0">
-                                <i class="fas fa-arrow-right"></i>
-                            </Accordion.Toggle>
-                        </Col>
-                    </Row>
-                    <Accordion.Collapse eventKey="0">
-                        {/* https://react-component.github.io/slider/ */}
-                        <Form className="mt-4">
-                            <Form.Group controlId="formEntryBody">
-                                <Form.Control
-                                    as="textarea"
-                                    rows="3"
-                                    name="entryBody"
-                                    type="entryBody"
-                                    onChange={this.handleChange}
-                                    placeholder="How was your day?" />
-                            </Form.Group>
-                            <div>
-                                <p className="my-3">Stress Rating</p>
-                                <Slider min={0} max={100} />
-                                <p className="my-3">Depression Rating</p>
-                                <Slider min={0} max={100} />
-                                <p className="my-3">Anxiety Rating</p>
-                                <Slider min={0} max={100} />
-                            </div>
-                            <Button className="mx-auto" onClick={this.handleSubmit}>Submit</Button>
-                        </Form>
-                    </Accordion.Collapse>
+            <React.Fragment>
+                <div className="standardBox" onClick={this.newJournalEntryModal}>
+                    <Button className="buttonPrimaryDarken" onClick={this.newJournalEntryModal}>
+                        NEW ENTRY <i class="ml-2 fas fa-long-arrow-alt-right"></i>
+                    </Button>
+                    
                 </div >
-            </Accordion >
+                
+            </React.Fragment>
+
         )
     }
 }

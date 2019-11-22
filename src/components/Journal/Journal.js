@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, Button } from 'react-bootstrap';
 import axios from 'axios';
 
 import SectionTitle from '../Reusable/SectionTitle';
@@ -47,8 +47,8 @@ export default class Journal extends Component {
             return (
                 <Row noGutters={true}>
                     <Col>
-                        <SectionTitle title="Mood Journal"/>
-                        <CreateNewJournal/>
+                        <SectionTitle title="Mood Journal" />
+                        <CreateNewJournal />
                         <JournalEntryDisplay journals={this.state.journalEntries} />
                     </Col>
                 </Row>
