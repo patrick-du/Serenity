@@ -60,11 +60,15 @@ export default class CreateNewJournal extends Component {
                         Swal.fire({
                             icon: 'success',
                             title: `Entry created!`
+                        }).then((result) => {
+                            window.location.reload()
                         })
                     } else {
                         Swal.fire({
                             icon: 'error',
                             title: `Entry failed!`
+                        }).then((result) => {
+                            window.location.reload()
                         })
                     }
                 })
@@ -75,7 +79,7 @@ export default class CreateNewJournal extends Component {
     render() {
         return (
             <React.Fragment>
-                <div className="standardBox" onClick={this.newJournalEntryModal}>
+                <div className="standardBox">
                     <Button className="buttonPrimaryDarken" onClick={this.newJournalEntryModal}>
                         NEW ENTRY <i class="ml-2 fas fa-long-arrow-alt-right"></i>
                     </Button>

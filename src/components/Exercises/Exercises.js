@@ -19,6 +19,7 @@ export default class Exercises extends Component {
     }
 
     async getUserExercises() {
+        axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwtToken');
         await axios.get(`http://localhost:3000/users/5db1abf4e12aa5442862e8a6/exercises`)
             .then((res) => {
                 setTimeout(() => this.setState({ userExercises: res.data, isReady: true }), 200);
