@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Table, Row, Col, Button, Accordion, Modal } from 'react-bootstrap';
+import { Table, Row, Col, Button, Accordion, Modal, ProgressBar } from 'react-bootstrap';
 import { Link } from 'react-router-dom'
+import JournalProgressBar from './JournalProgressBar';
 import axios from "axios";
 import Swal from 'sweetalert2';
 
@@ -21,7 +22,7 @@ export default class JournalEntryDisplay extends Component {
             showCancelButton: true,
             confirmButtonText: 'Yes, delete it!',
             preConfirm: async (deleteEntry) => {
-                await axios.delete('http://localhost:3000/users/5db1abf4e12aa5442862e8a6/journals', { data: {journalId: journalId} })
+                await axios.delete('http://localhost:3000/users/5db1abf4e12aa5442862e8a6/journals', { data: { journalId: journalId } })
                     .then((res) => { success = true })
                     .catch((error) => { success = false })
             },
@@ -46,23 +47,24 @@ export default class JournalEntryDisplay extends Component {
                         return (
                             <div className="standardBox">
                                 <Row noGutters={true}>
-                                    <Col><p className="JED-date">{journal.date}</p></Col>
-                                    <Col className="text-right">
-                                        <Button className="buttonPrimaryDarken" onClick={() => this.deleteJournalEntryModal(journal._id)}>
-                                            <i class="fas fa-times"></i>
-                                        </Button>
-                                    </Col>
+                                <p className="JED-Date">{journal.date}</p>
+                                    <div className="ml-auto">
+                                    <Button className="button-delete mx-auto" onClick={() => this.deleteJournalEntryModal(journal._id)}>
+                                        Delete 
+                                    </Button>
+                                    </div>
                                 </Row>
                                 <hr />
-                                <Row noGutters={true} className="my-2 ">
+                                <Row noGutters={true} className="my-2">
                                     {journal.entry}
                                 </Row>
                                 <hr />
-                                <Row noGutters={true}>
-                                    <div>
-                                        Stress: {journal.stressRating} | Depression: {journal.depressionRating} | Anxiety: {journal.anxietyRating}
-                                    </div>
-                                </Row>
+                                Physical Activity Level: {journal.physicalActivityLevel}
+                                <JournalProgressBar title="Stress" rating={journal.stressRating} />
+                                <JournalProgressBar title="Depression" rating={journal.depressionRating} />
+                                <JournalProgressBar title="Anxiety" rating={journal.anxietyRating} />
+
+                            
                             </div >
                         )
 

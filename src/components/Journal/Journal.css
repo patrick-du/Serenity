@@ -1,3 +1,12 @@
-.JED-date {
+.JED-Date {
+    font-size: 22px;
+    font-family: 'SFProDisplay-Medium';
+}
+
+.JED-ProgressBar-Title {
     font-family: 'SFProDisplay-Medium'
+}
+
+.progress-bar {
+    background-color: #F4CF5C;
 }

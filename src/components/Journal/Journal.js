@@ -47,7 +47,6 @@ export default class Journal extends Component {
             return (
                 <Row noGutters={true}>
                     <Col>
-                        <SectionTitle title="Mood Journal" />
                         <CreateNewJournal />
                         <JournalEntryDisplay journals={this.state.journalEntries} />
                     </Col>

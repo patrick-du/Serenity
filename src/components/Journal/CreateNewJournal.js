@@ -30,9 +30,10 @@ export default class CreateNewJournal extends Component {
         Swal.mixin({
             confirmButtonText: 'Next',
             showCancelButton: true,
-            progressSteps: ['1', '2', '3', '4'],
+            progressSteps: ['1', '2', '3', '4', '5'],
         }).queue([
             { title: 'How was your day?', input: 'textarea', inputPlaceholder: 'Required...' },
+            { title: 'Physical Activity Level', input: 'select', inputOptions: { None: 'None', Light: 'Light', Moderate: 'Moderate', Vigorous: 'Vigorous'}, inputPlaceholder: 'Select your intensity' },
             { title: 'Stress Rating', input: 'range', inputValue: 50 },
             { title: 'Depression Rating', input: 'range', inputValue: 50 },
             { title: 'Anxiety Rating', input: 'range', inputValue: 50 }
@@ -40,13 +41,14 @@ export default class CreateNewJournal extends Component {
             if (result.value) {
                 let journalEntry = {
                     entry: result.value[0],
-                    stressRating: result.value[1],
-                    depressionRating: result.value[2],
-                    anxietyRating: result.value[3]
+                    physicalActivityLevel: result.value[1],
+                    stressRating: result.value[2],
+                    depressionRating: result.value[3],
+                    anxietyRating: result.value[4]
                 }
                 Swal.fire({
                     title: 'Your Entry',
-                    html: `${journalEntry.entry} <br/> Stress: ${journalEntry.stressRating} <br/> Depression: ${journalEntry.depressionRating} <br/> Anxiety: ${journalEntry.anxietyRating}`,
+                    html: `${journalEntry.entry} <br/> ${journalEntry.physicalActivityLevel} <br/> Stress: ${journalEntry.stressRating} <br/> Depression: ${journalEntry.depressionRating} <br/> Anxiety: ${journalEntry.anxietyRating}`,
                     showCancelButton: true,
                     confirmButtonText: 'Submit',
                     preConfirm: async (createNewEntry) => {
@@ -80,12 +82,17 @@ export default class CreateNewJournal extends Component {
         return (
             <React.Fragment>
                 <div className="standardBox">
-                    <Button className="buttonPrimaryDarken" onClick={this.newJournalEntryModal}>
-                        NEW ENTRY <i class="ml-2 fas fa-long-arrow-alt-right"></i>
-                    </Button>
-                    
+                    <hr/>
+                    <Row noGutters={true}>
+                        <Button className="button-create" onClick={this.newJournalEntryModal}>
+                            New Entry
+                        </Button>
+                    </Row>
+                    <hr/>
+
+
                 </div >
-                
+
             </React.Fragment>
 
         )

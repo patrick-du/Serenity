@@ -46,7 +46,6 @@ export default class Exercises extends Component {
             return (
                 <Row noGutters={true}>
                     <Col >
-                        <SectionTitle title="Fitness"/>
                         <UserExerciseDisplay exercises={this.state.userExercises}/>
                     </Col>
                 </Row>

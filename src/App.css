@@ -52,6 +52,36 @@ p {
     text-decoration-color: #F4CF5C;
 }
 
+.button-create {
+    font-family: 'SFProDisplay-Regular';
+    border: 1px solid #e9ecef;
+    background-color: #e9ecef;
+    color: #0be881;
+}
+
+.button-create:hover {
+    font-family: 'SFProDisplay-Regular';
+    border: 1px solid #0be881;
+    background-color: #0be881;
+    color: white;
+    transition: 0.5s;
+}
+
+.button-delete {
+    font-family: 'SFProDisplay-Regular';
+    border: 1px solid #e9ecef;
+    background-color: #e9ecef;
+    color: #ef5777;
+}
+
+.button-delete:hover {
+    font-family: 'SFProDisplay-Regular';
+    border: 1px solid #ef5777;
+    background-color: #ef5777;
+    color: white;
+    transition: 0.5s;
+}
+
 .buttonPrimaryDarken {
     font-family: 'SFProDisplay-Medium';
     border: 1px solid #ffeaa7;
@@ -107,12 +137,8 @@ p {
     color: #FAFAFA;
 }
 
-
 .standardBox {
-    box-shadow: 0 0 5px #ccc;
-    padding: 2em;
     margin: 2em 0em;
-    border-radius: 5px;
 }
 
 /* Sidebar Scroller */
