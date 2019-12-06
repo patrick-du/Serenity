@@ -5,6 +5,22 @@
     font-family: 'SFProDisplay-Regular';
 }
 
+.standardBox {
+    background-color: #FFFFFF;
+    margin: 2em 0em;
+    padding: 3em 3em;
+    border-radius: 5px;
+    box-shadow: 0px 24px 48px #e9ebf2;
+}
+
+.linkdec {
+    text-decoration: none !important;
+}
+
+.linkdec:hover {
+    text-decoration: none !important;
+}
+
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
     .app {
@@ -33,14 +49,6 @@
     }
 }
 
-.linkdec {
-    text-decoration: none !important;
-}
-
-.linkdec:hover {
-    text-decoration: none !important;
-}
-
 p {
     margin: 0;
 }
@@ -67,6 +75,23 @@ p {
     transition: 0.5s;
 }
 
+.button-submit {
+    font-family: 'SFProDisplay-Regular';
+    border: 1px solid #e9ecef;
+    background-color: #e9ecef;
+    color: #F4CF5C;
+    width: 100%;
+}
+
+.button-submit:hover {
+    font-family: 'SFProDisplay-Regular';
+    border: 1px solid #F4CF5C;
+    background-color: #F4CF5C;
+    color: white;
+    transition: 0.5s;
+    width: 100%;
+}
+
 .button-delete {
     font-family: 'SFProDisplay-Regular';
     border: 1px solid #e9ecef;
@@ -82,31 +107,6 @@ p {
     transition: 0.5s;
 }
 
-.buttonPrimaryDarken {
-    font-family: 'SFProDisplay-Medium';
-    border: 1px solid #ffeaa7;
-    background-color: #ffeaa7;
-    color: #060605;
-    box-shadow: 0 0 5px #ccc;
-}
-
-.buttonPrimaryDarken:hover {
-    border: 1px solid #f5e09f;
-    background-color: #f5e09f;
-    color: #060605;
-}
-
-.buttonOutline {
-    border: 1px solid #0984e3;
-    background-color: #FAFAFA;
-    color: #0984e3;
-}
-
-.buttonOutline:hover {
-    border: 1px solid #FAFAFA;
-    background-color: #0984e3;
-    color: #FAFAFA;
-}
 
 .buttonDarken {
     border: 1px solid #0984e3;
@@ -119,27 +119,8 @@ p {
     background-color: #0573c7;
 }
 
-.buttonOutlineSuccess {
-    border: 1px solid #10ac84;
-    background-color: #FAFAFA;
-    color: #10ac84;
-}
 
-.buttonOutlineSuccess:hover {
-    border: 1px solid #FAFAFA;
-    background-color: #10ac84;
-    color: #FAFAFA;
-}
 
-.buttonOutlineSuccess:active {
-    border: 1px solid #FAFAFA;
-    background-color: #10ac84;
-    color: #FAFAFA;
-}
-
-.standardBox {
-    margin: 2em 0em;
-}
 
 /* Sidebar Scroller */
 /* width */
@@ -155,6 +136,6 @@ p {
   
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #0984e3;
+    background: #F4CF5C;
     border-radius: 5px;
 }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 
 
 
@@ -13,14 +13,17 @@ export default class Profile extends Component {
     render() {
         return (
             <Row noGutters={true}>
-                Profile
+                <Col>
+                    <div className="standardBox"> Profile
                 user picture
 
                 user profile (update info)
                 log out button
                 {localStorage.getItem('jwtToken') &&
                     <button class="btn btn-danger" onClick={this.logout}>Logout</button>
-                }
+                }</div>
+                </Col>
+               
             </Row>
         )
     }

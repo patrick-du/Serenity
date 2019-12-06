@@ -1,3 +1,14 @@
+/* Journal Entry Display Styling */ 
+.JED-NameDeco {
+    border-bottom: 3px solid #F4CF5C;
+    /*padding-bottom: .20em;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggle-link' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 20 4'%3E%3Cstyle type='text/css'%3E.squiggle{animation:shift .3s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(-20px);}}%3C/style%3E%3Cpath fill='none' stroke='%23F4CF5C' stroke-width='2' class='squiggle' d='M0,3.5 c 5,0,5,-3,10,-3 s 5,3,10,3 c 5,0,5,-3,10,-3 s 5,3,10,3'/%3E%3C/svg%3E");*/
+    background-position: 0 100%;
+    background-size: auto 6px;
+    background-repeat: repeat-x;
+    text-decoration: none;
+}
+
 .JED-Date {
     font-size: 22px;
     font-family: 'SFProDisplay-Medium';
@@ -9,4 +20,59 @@
 
 .progress-bar {
     background-color: #F4CF5C;
+}
+
+
+/* Journal Entry Creation Modal Styling */ 
+
+.JEC-Title {
+    font-size: 22px;
+    font-family: 'SFProDisplay-Medium';
+
+}
+.JEC-Label {
+    font-family: 'SFProDisplay-Medium';
+}
+
+.JEC-Input {
+    font-family: 'SFProDisplay-Regular'
+}
+
+
+/* SLIDER STYLING */
+
+.slidecontainer {
+    width: 100%; /* Width of the outside container */
+  }
+.slider {
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: 100%; /* Full-width */
+    height: 8px; /* Specified height */
+    border-radius: 5px;
+    background: #F4CF5C;
+    outline: none;
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+  }
+.slider:hover {
+    opacity: 1;
+}
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 18px; 
+    height: 18px; 
+    border-radius: 50%;
+    background: #fff;
+    border: solid 2px #F4CF5C;
+    cursor: pointer;
+}
+.slider::-moz-range-thumb {
+    width: 18px; /* Set a specific slider handle width */
+    height: 18px; /* Slider handle height */
+    background: #fff; 
+    border: solid 1px #F4CF5C;
+    cursor: pointer; 
 }

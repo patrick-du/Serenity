@@ -26,7 +26,6 @@ export default class Journal extends Component {
             .catch((e) => {
                 console.log(e)
             })
-
     }
 
 

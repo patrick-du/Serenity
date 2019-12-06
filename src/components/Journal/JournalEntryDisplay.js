@@ -47,10 +47,10 @@ export default class JournalEntryDisplay extends Component {
                         return (
                             <div className="standardBox">
                                 <Row noGutters={true}>
-                                <p className="JED-Date">{journal.date}</p>
+                                    <p className="JED-Date">{journal.date}</p>
                                     <div className="ml-auto">
-                                    <Button className="button-delete mx-auto" onClick={() => this.deleteJournalEntryModal(journal._id)}>
-                                        Delete 
+                                        <Button className="button-delete mx-auto" onClick={() => this.deleteJournalEntryModal(journal._id)}>
+                                            Delete
                                     </Button>
                                     </div>
                                 </Row>
@@ -64,7 +64,7 @@ export default class JournalEntryDisplay extends Component {
                                 <JournalProgressBar title="Depression" rating={journal.depressionRating} />
                                 <JournalProgressBar title="Anxiety" rating={journal.anxietyRating} />
 
-                            
+
                             </div >
                         )
 
