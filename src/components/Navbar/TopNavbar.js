@@ -15,8 +15,8 @@ export default class TopNavbar extends Component {
                         <Link to="/journal" className="linkdec navLink">
                             <Nav.Link href="#journal">Journal</Nav.Link>
                         </Link>
-                        <Link to="/fitness" className="linkdec navLink">
-                            <Nav.Link href="#fitness">Fitness</Nav.Link>
+                        <Link to="/assessments" className="linkdec navLink">
+                            <Nav.Link href="#assessments">Assessments</Nav.Link>
                         </Link>
                         <Link to="/statistics" className="linkdec navLink">
                             <Nav.Link href="#statistics">Statistics</Nav.Link>

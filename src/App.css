@@ -13,12 +13,19 @@
     box-shadow: 0px 24px 48px #e9ebf2;
 }
 
+.standardBox-title {
+    font-size: 24px;
+    font-family: 'SFProDisplay-Medium';
+}
+
 .linkdec {
     text-decoration: none !important;
+    color: black;
 }
 
 .linkdec:hover {
     text-decoration: none !important;
+    color: black;
 }
 
 /* Small devices (landscape phones, 576px and up) */
@@ -64,13 +71,14 @@ p {
     font-family: 'SFProDisplay-Regular';
     border: 1px solid #e9ecef;
     background-color: #e9ecef;
-    color: #0be881;
+    color: #6cd6a5;
+    width: 100%;
 }
 
 .button-create:hover {
     font-family: 'SFProDisplay-Regular';
-    border: 1px solid #0be881;
-    background-color: #0be881;
+    border: 1px solid #6cd6a5;
+    background-color: #6cd6a5;
     color: white;
     transition: 0.5s;
 }
@@ -97,6 +105,7 @@ p {
     border: 1px solid #e9ecef;
     background-color: #e9ecef;
     color: #ef5777;
+    width: 100%;
 }
 
 .button-delete:hover {
@@ -107,6 +116,22 @@ p {
     transition: 0.5s;
 }
 
+.button-cancel {
+    font-family: 'SFProDisplay-Regular';
+    border: 1px solid #e9ecef;
+    background-color: #e9ecef;
+    color: #7F8C8D;
+    width: 100%;
+
+}
+
+.button-cancel:hover {
+    font-family: 'SFProDisplay-Regular';
+    border: 1px solid #7F8C8D;
+    background-color: #7F8C8D;
+    color: white;
+    transition: 0.5s;
+}
 
 .buttonDarken {
     border: 1px solid #0984e3;

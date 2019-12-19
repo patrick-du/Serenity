@@ -28,8 +28,12 @@ export default class Journal extends Component {
             })
     }
 
+    async getJWT() {
+        axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwtToken');
+    }
 
     componentDidMount() {
+        this.getJWT();
         this.getUserJournals();
     }
 

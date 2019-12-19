@@ -33,7 +33,6 @@ export default class CreateNewJournal extends Component {
     }
 
     async handleJournalSubmit(e) {
-        let success = false;
         e.preventDefault();
         let journalEntry = {
             date: e.target.date.value,
@@ -53,19 +52,18 @@ export default class CreateNewJournal extends Component {
             <React.Fragment>
                 <div className="standardBox">
                     <Row noGutters={true}>
-                        <p className="JED-Date">Hey, <span className="JED-NameDeco">Patrick</span></p>
+                        <p className="standardBox-title">Hey, <span className="JED-NameDeco">Patrick</span></p>
                         <div className="ml-auto">
                             <Button className="button-create" onClick={this.handleShow}>
                                 New Entry
                         </Button>
                         </div>
                     </Row>
-                    
                 </div >
-                <Modal show={this.state.modalShow} onHide={this.handleClose} centered>
+                <Modal show={this.state.modalShow} onHide={this.handleClose} lg centered>
                     <Modal.Body>
                         <Form className="m-3" onSubmit={this.handleJournalSubmit}>
-                            <div className="my-3" className="JEC-Title">
+                            <div className="my-3" className="standardBox-title">
                                 <Row noGutters={true}>
                                     New Journal Entry
                                     <span className="ml-auto"><i class="fas fa-times" onClick={this.handleClose}></i></span>
@@ -123,7 +121,7 @@ export default class CreateNewJournal extends Component {
                                 </div>
                             </Form.Group>
 
-                            <Button className="button-submit my-3" type="submit">Submit</Button>
+                            <Button className="button-create my-3" type="submit">Submit</Button>
                         </Form>
                     </Modal.Body>
                 </Modal>

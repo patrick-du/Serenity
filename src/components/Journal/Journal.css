@@ -9,11 +9,6 @@
     text-decoration: none;
 }
 
-.JED-Date {
-    font-size: 22px;
-    font-family: 'SFProDisplay-Medium';
-}
-
 .JED-ProgressBar-Title {
     font-family: 'SFProDisplay-Medium'
 }
@@ -25,11 +20,6 @@
 
 /* Journal Entry Creation Modal Styling */ 
 
-.JEC-Title {
-    font-size: 22px;
-    font-family: 'SFProDisplay-Medium';
-
-}
 .JEC-Label {
     font-family: 'SFProDisplay-Medium';
 }
