@@ -33,3 +33,13 @@ code {
   src: local('SFProDisplay-Bold'), url(./fonts/SFProDisplay-Bold.ttf) format('truetype');
 }
 
+@font-face {
+  font-family: 'PlayfairDisplay-Regular';
+  src: local('PlayfairDisplay-Regular'), url(./fonts/PlayfairDisplay-Regular.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'PlayfairDisplay-Bold';
+  src: local('PlayfairDisplay-Bold'), url(./fonts/PlayfairDisplay-Bold.ttf) format('truetype');
+}
+

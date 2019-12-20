@@ -39,6 +39,7 @@ export default class GAD7HistoryDisplay extends Component {
     }
 
     async deleteGAD7Entry() {
+        console.log(this.state);
         await axios.delete(`http://localhost:3000/users/5db1abf4e12aa5442862e8a6/assessments/GAD7`, { data: { entryId: this.state.entryId } })
             .then((res) => window.location.reload())
             .catch((error) => { alert(error) })

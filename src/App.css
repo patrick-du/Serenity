@@ -18,6 +18,12 @@
     font-family: 'SFProDisplay-Medium';
 }
 
+.standardBox-subTitle {
+    font-family: 'SFProDisplay-Light';
+    color: #A7A7A7;
+    font-size: 20px;
+}
+
 .linkdec {
     text-decoration: none !important;
     color: black;
@@ -83,18 +89,18 @@ p {
     transition: 0.5s;
 }
 
-.button-submit {
+.button-login {
     font-family: 'SFProDisplay-Regular';
     border: 1px solid #e9ecef;
     background-color: #e9ecef;
-    color: #F4CF5C;
+    color: #74b9ff;
     width: 100%;
 }
 
-.button-submit:hover {
+.button-login:hover {
     font-family: 'SFProDisplay-Regular';
-    border: 1px solid #F4CF5C;
-    background-color: #F4CF5C;
+    border: 1px solid #74b9ff;
+    background-color: #74b9ff;
     color: white;
     transition: 0.5s;
     width: 100%;
@@ -133,16 +139,6 @@ p {
     transition: 0.5s;
 }
 
-.buttonDarken {
-    border: 1px solid #0984e3;
-    background-color: #0984e3;
-    color: #FAFAFA;
-}
-
-.buttonDarken:hover {
-    border: 1px solid #0573c7;
-    background-color: #0573c7;
-}
 
 
 
@@ -164,3 +160,4 @@ p {
     background: #F4CF5C;
     border-radius: 5px;
 }
+

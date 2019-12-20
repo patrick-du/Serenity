@@ -1,21 +1,49 @@
-.authBox {
-    margin: 100px 20%;
-    padding: 5%;
-    background-color: white;
-    border-radius: 10px;
+#registerView {
+    display: none;
 }
 
-.authTitle {
-    font-family: 'SFProDisplay-Medium';
+#loginView {
+    display: none;
+}
+
+.welcome-title {
+    font-size: 45px;
+    font-family: 'PlayfairDisplay-Regular';
+}
+
+.welcome-subTitle {
+    font-family: 'SFProDisplay-Light';
+    color: #A7A7A7;
     font-size: 20px;
 }
 
-.authSubTitle {
-    font-family: 'SFProDisplay-Light';
-    color: #A7A7A7;
-    font-size: 18px;
+.welcome-definitionTitle {
+    font-family: 'SFProDisplay-Bold';
+    color: #212529;
+    font-size: 16px;
 }
 
-.authButton {
-    width: 25%;
+.welcome-definitionSubTitle {
+    color: #A7A7A7 !important; 
 }
+
+.welcome-definitionText {
+    font-family: 'SFProDisplay-Regular';
+    color: #212529;
+    font-size: 16px;
+}
+
+.welcome-definitionText2 {
+    border-bottom: 2px solid #F4CF5C;
+    text-decoration: none !important;
+}
+
+.icon0 {
+    color: #a3a3a3;
+    transition: 0.2s ease-in;
+    font-size: 20px;
+  }
+  
+  .icon0:hover {
+    color: #2b2b2b
+  }

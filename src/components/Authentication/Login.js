@@ -1,41 +1,30 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
-import { BrowserRouter as Link } from 'react-router-dom';
+import { Row, Col, Form, Button } from 'react-bootstrap';
 
 export default class Login extends Component {
-
     constructor(props) {
         super(props);
         this.state = {
-            email: '',
-            password: '',
-            message: '',
         };
-
-        this.handleChange = this.handleChange.bind(this);
     }
 
-    handleChange(event) {
-        const value = event.target.value
-        const name = event.target.name;
+    handleLogin = (e) => {
+        e.preventDefault();
+        let loginData = {
+            email: e.target.email.value,
+            password: e.target.password.value
+        }
 
-        this.setState({
-            [name]: value
-        })
-    }
-
-    handleSubmit = (e) => {
-        const { email, password } = this.state;
-        axios.post('http://localhost:3000/login', { email, password })
+        axios.post('http://localhost:3000/login', loginData)
             .then((res) => {
                 localStorage.setItem('jwtToken', res.data.token);
                 this.setState({ message: '' });
                 this.props.history.push('/journal')
             })
             .catch((error) => {
+                alert(error)
                 if (error.response.status === 400) {
                     alert(error.response.data);
                 } else if (error.response.status === 401) {
@@ -48,47 +37,24 @@ export default class Login extends Component {
     render() {
         const { email, password, message } = this.state;
         return (
-            <Container className="app" fluid={true}>
+            <React.Fragment>
                 <Row noGutters={true}>
-                    <Col sm={2} md={2} lg={2} />
-                    <Col sm={8} md={8} lg={8}>
-                        <div className="authBox">
-                            <div className="mt-1 mb-5">
-                                <p className="authTitle text-center">Welcome back</p>
-                                <p className="authSubTitle text-center">Please sign in to continue</p>
-                            </div>
-                            <Form>
-                                <Form.Group controlId="formBasicEmail">
-                                    <Form.Label>Email address</Form.Label>
-                                    <Form.Control
-                                        name="email"
-                                        type="email"
-                                        onChange={this.handleChange}
-                                        placeholder="Enter email" />
-                                </Form.Group>
-
-                                <Form.Group controlId="formBasicPassword">
-                                    <Form.Label>Password</Form.Label>
-                                    <Form.Control
-                                        name="password"
-                                        type="password"
-                                        onChange={this.handleChange}
-                                        placeholder="Enter password" />
-                                </Form.Group>
-
-
-                                <Row noGutters={true} className="mt-5">
-                                    <Button className="buttonDarken mx-auto authButton" onClick={this.handleSubmit}>Login</Button>
-                                </Row>
-                            </Form>
-                        </div>
+                    <Col>
+                        <p className="standardBox-title">Welcome back</p>
+                        <p className="standardBox-subTitle">Please sign in to continue</p>
                     </Col>
-                    <Col sm={2} md={2} lg={2} />
-
                 </Row>
-            </Container>
-
-
+                <Form onSubmit={this.handleLogin}>
+                    <Form.Group controlId="email" className="my-2">
+                        <Form.Control required name="email" type="email" placeholder="Email"/>
+                    </Form.Group>
+                    <Form.Group controlId="password" className="my-2">
+                        <Form.Control required name="password" type="password" placeholder="Password"/>
+                    </Form.Group>
+                    <Button className="button-login mt-2" type="submit">Login</Button>
+                    <Button className="button-cancel mt-2" onClick={() => window.location.reload()}>Go Back</Button>
+                </Form>
+            </React.Fragment>
         );
     }
 }

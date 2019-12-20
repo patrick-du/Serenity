@@ -7,6 +7,8 @@ import './fonts/SFProDisplay-Light.ttf'
 import './fonts/SFProDisplay-Regular.ttf'
 import './fonts/SFProDisplay-Medium.ttf'
 import './fonts/SFProDisplay-Bold.ttf'
+import './fonts/PlayfairDisplay-Regular.ttf'
+import './fonts/PlayfairDisplay-Bold.ttf'
 
 import App from './App';
 

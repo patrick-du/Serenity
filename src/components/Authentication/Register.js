@@ -1,101 +1,60 @@
 import React, { Component } from 'react';
 import axios from "axios";
 
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { Row, Col, Form, Button } from 'react-bootstrap';
 
 export default class Register extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            name: '',
-            email: '',
-            password: '',
-            password2: '',
-        };
-
-        this.handleChange = this.handleChange.bind(this);
+        this.state = {};
     }
 
-    handleChange(event) {
-        const value = event.target.value
-        const name = event.target.name;
+    handleRegister = (e) => {
+        e.preventDefault();
+        let registerData = {
+            name: e.target.name.value,
+            email: e.target.email.value,
+            password: e.target.password.value,
+            password2: e.target.password2.value
+        }
 
-        this.setState({
-            [name]: value
-        })
-    }
-
-    handleSubmit = (e) => {
-        const { name, email, password, password2 } = this.state;
-        axios.post('http://localhost:3000/register', { name, email, password, password2 })
-        .then((res) => {
-            alert("Success!")
-            this.props.history.push('/login')
-        })
-        .catch((error) => {
-            if (error.response.status === 400) {
-                console.log(error.response.data);
-            } 
-        })
+        axios.post('http://localhost:3000/register', registerData)
+            .then((res) => {
+                if (res.status == 200) {
+                    alert("Success!")
+                    this.props.postRegister()
+                }
+            })
+            .catch((error) => alert(error))
     };
 
-    
+
     render() {
         return (
-            <Container className="app" fluid={true}>
-            <Row noGutters={true}>
-                <Col sm={2} md={2} lg={2} />
-                <Col sm={8} md={8} lg={8}>
-                    <div className="authBox">
-                <div className="mt-1 mb-5">
-                    <p className="authTitle text-center">Create new account</p>
-                    <p className="authSubTitle text-center">Enter your credentials below</p>
-                </div>
-                <Form>
-                    <Form.Group controlId="formBasicName">
-                        <Form.Control
-                            name="name"
-                            type="name"
-                            onChange={this.handleChange}
-                            placeholder="Enter name" />
+            <React.Fragment>
+                <Row noGutters={true}>
+                    <Col>
+                        <p className="standardBox-title">Create new account</p>
+                        <p className="standardBox-subTitle">Enter your credentials below</p>
+                    </Col>
+                </Row>
+                <Form onSubmit={this.handleRegister}>
+                    <Form.Group controlId="name" className="my-2">
+                        <Form.Control required name="name" type="name" placeholder="Name" />
                     </Form.Group>
-
-                    <Form.Group controlId="formBasicEmail">
-                        <Form.Control
-                            name="email"
-                            type="email"
-                            onChange={this.handleChange}
-                            placeholder="Enter email" />
+                    <Form.Group controlId="email" className="my-2">
+                        <Form.Control required name="email" type="email" placeholder="Email" />
                     </Form.Group>
-
-                    <Form.Group controlId="formBasicPassword">
-                        <Form.Control
-                            name="password"
-                            type="password"
-                            onChange={this.handleChange}
-                            placeholder="Enter password" />
+                    <Form.Group controlId="password" className="my-2">
+                        <Form.Control required name="password" type="password" placeholder="Password" />
                     </Form.Group>
-
-                    <Form.Group controlId="formBasicPassword">
-                        <Form.Control
-                            name="password2"
-                            type="password"
-                            onChange={this.handleChange}
-                            placeholder="Confirm password" />
+                    <Form.Group controlId="password2" className="my-2">
+                        <Form.Control required name="password2" type="password" placeholder="Confirm password" />
                     </Form.Group>
-
-                    <Row noGutters={true} className="mt-5">
-                        <Button className="buttonDarken mx-auto authButton" onClick={this.handleSubmit}>Register</Button>
-                    </Row>
+                    <Button className="button-create mt-2" type="submit">Register</Button>
+                    <Button className="button-cancel mt-2" onClick={() => window.location.reload()}>Go Back</Button>
                 </Form>
-            </div>
-                </Col>
-                <Col sm={2} md={2} lg={2} />
-
-            </Row>
-        </Container>
-
-
+            </React.Fragment>
         );
     }
 }
