@@ -60,15 +60,13 @@ export default class CreateNewJournal extends Component {
                         </div>
                     </Row>
                 </div >
-                <Modal show={this.state.modalShow} onHide={this.handleClose} lg centered>
+                <Modal show={this.state.modalShow} onHide={this.handleClose} backdrop={'static'} centered>
                     <Modal.Body>
                         <Form className="m-3" onSubmit={this.handleJournalSubmit}>
-                            <div className="my-3" className="standardBox-title">
-                                <Row noGutters={true}>
-                                    New Journal Entry
-                                    <span className="ml-auto"><i class="fas fa-times" onClick={this.handleClose}></i></span>
-                                </Row>
-                            </div>
+                            <Row noGutters={true} className="my-3">
+                                <p className="standardBox-title">New Journal Entry</p>
+                                <span className="ml-auto"><i class="fas fa-times" onClick={this.handleClose}></i></span>
+                            </Row>
                             <Form.Group controlId="formBasicDate" className="my-3">
                                 <Form.Label className="JEC-Label">Date</Form.Label>
                                 <Form.Control
@@ -125,7 +123,6 @@ export default class CreateNewJournal extends Component {
                         </Form>
                     </Modal.Body>
                 </Modal>
-
             </React.Fragment>
         )
     }

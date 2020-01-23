@@ -1,0 +1,16 @@
+.AccountDetails-Heading {
+    font-family: 'SFProDisplay-Medium';
+    color: #212529;
+}
+
+.AccountDetails-Info {
+    font-family: 'SFProDisplay-Light';
+    color: #A7A7A7; 
+}
+
+.AccountDetails-Row {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 1em;
+}

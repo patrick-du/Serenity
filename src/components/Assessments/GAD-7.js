@@ -3,6 +3,7 @@ import { Row, Col, Button, Form } from 'react-bootstrap';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import axios from 'axios';
 import $ from 'jquery';
+import FadeIn from 'react-fade-in';
 
 export default class GAD7 extends Component {
     constructor(props) {
@@ -47,6 +48,7 @@ export default class GAD7 extends Component {
 
     render() {
         return (
+            <FadeIn delay={150} transitionDuration={300}>
             <div className="standardBox" id="box">
                 <div id="GAD7_preSubmit">
                     <Row>
@@ -170,6 +172,7 @@ export default class GAD7 extends Component {
 
 
             </div>
+            </FadeIn>
 
         )
     }

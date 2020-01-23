@@ -39,18 +39,20 @@ export default class Register extends Component {
                     </Col>
                 </Row>
                 <Form onSubmit={this.handleRegister}>
-                    <Form.Group controlId="name" className="my-2">
-                        <Form.Control required name="name" type="name" placeholder="Name" />
-                    </Form.Group>
-                    <Form.Group controlId="email" className="my-2">
-                        <Form.Control required name="email" type="email" placeholder="Email" />
-                    </Form.Group>
-                    <Form.Group controlId="password" className="my-2">
-                        <Form.Control required name="password" type="password" placeholder="Password" />
-                    </Form.Group>
-                    <Form.Group controlId="password2" className="my-2">
-                        <Form.Control required name="password2" type="password" placeholder="Confirm password" />
-                    </Form.Group>
+                    <div className="my-3">
+                        <Form.Group controlId="name" className="my-2">
+                            <Form.Control required name="name" type="name" placeholder="Name" />
+                        </Form.Group>
+                        <Form.Group controlId="email" className="my-2">
+                            <Form.Control required name="email" type="email" placeholder="Email" />
+                        </Form.Group>
+                        <Form.Group controlId="password" className="my-2">
+                            <Form.Control required name="password" type="password" placeholder="Password" />
+                        </Form.Group>
+                        <Form.Group controlId="password2" className="my-2">
+                            <Form.Control required name="password2" type="password" placeholder="Confirm password" />
+                        </Form.Group>
+                    </div>
                     <Button className="button-create mt-2" type="submit">Register</Button>
                     <Button className="button-cancel mt-2" onClick={() => window.location.reload()}>Go Back</Button>
                 </Form>

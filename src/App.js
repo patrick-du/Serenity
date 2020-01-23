@@ -10,7 +10,6 @@ import Login from './components/Authentication/Login';
 
 // Protected Component Imports 
 import TopNavbar from './components/Navbar/TopNavbar';
-import Dashboard from './components/Dashboard/Dashboard';
 import Journal from './components/Journal/Journal';
 import Assessments from './components/Assessments/Assessments';
 import PHQ9 from './components/Assessments/PHQ-9';
@@ -39,7 +38,6 @@ export default class App extends Component {
             <Route exact path="/" component={Welcome} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
-            <PrivateRoute exact path="/dashboard" component={Dashboard}/>
             <PrivateRoute exact path="/journal" component={Journal}/>
             <PrivateRoute exact path="/assessments" component={Assessments}/>
             <PrivateRoute exact path="/assessments/PHQ9" component={PHQ9}/>

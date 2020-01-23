@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Row, Col, Button, Table, Modal } from 'react-bootstrap';
 import axios from 'axios';
-import $ from 'jquery';
 
 export default class PHQ9HistoryDisplay extends Component {
     constructor(props) {
@@ -47,7 +46,8 @@ export default class PHQ9HistoryDisplay extends Component {
     render() {
         return (
             <React.Fragment>
-                <p className="my-3 ml-2">Currently, there are {this.state.PHQ9Entries.length} PHQ-9 entries.</p>
+
+            <p className="my-3 ml-2">Currently, there are {this.state.PHQ9Entries.length} PHQ-9 entries.</p>
                 <hr/>
                 <Table responsive borderless>
                     <thead>
@@ -94,8 +94,7 @@ export default class PHQ9HistoryDisplay extends Component {
                         </Row>
                     </Modal.Body>
                 </Modal>
-            </React.Fragment>
-
+                </React.Fragment>
         )
     }
 }

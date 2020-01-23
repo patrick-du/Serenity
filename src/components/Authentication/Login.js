@@ -10,7 +10,7 @@ export default class Login extends Component {
         };
     }
 
-    handleLogin = (e) => {
+    handleLogin = (e) => {  
         e.preventDefault();
         let loginData = {
             email: e.target.email.value,
@@ -45,12 +45,14 @@ export default class Login extends Component {
                     </Col>
                 </Row>
                 <Form onSubmit={this.handleLogin}>
-                    <Form.Group controlId="email" className="my-2">
-                        <Form.Control required name="email" type="email" placeholder="Email"/>
-                    </Form.Group>
-                    <Form.Group controlId="password" className="my-2">
-                        <Form.Control required name="password" type="password" placeholder="Password"/>
-                    </Form.Group>
+                    <div className="my-3">
+                        <Form.Group controlId="email" className="my-2">
+                            <Form.Control required name="email" type="email" placeholder="Email" />
+                        </Form.Group>
+                        <Form.Group controlId="password" className="my-2">
+                            <Form.Control required name="password" type="password" placeholder="Password" />
+                        </Form.Group>
+                    </div>
                     <Button className="button-login mt-2" type="submit">Login</Button>
                     <Button className="button-cancel mt-2" onClick={() => window.location.reload()}>Go Back</Button>
                 </Form>

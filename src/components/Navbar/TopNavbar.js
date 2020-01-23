@@ -6,9 +6,8 @@ export default class TopNavbar extends Component {
     render() {
         return (
             <Navbar expand="md" className="p-0">
-                <Link to="/dashboard" className="linkdec">
-                    <Navbar.Brand href="#dashboard">Serenity.</Navbar.Brand>
-                </Link>
+                <Navbar.Brand>Serenity.</Navbar.Brand>
+
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ml-auto">

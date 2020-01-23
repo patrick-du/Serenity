@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Row, Col, Button, Modal, Form } from 'react-bootstrap';
 import JournalProgressBar from './JournalProgressBar';
 import axios from "axios";
-
 export default class JournalEntryDisplay extends Component {
     constructor(props) {
         super(props);
@@ -17,8 +16,11 @@ export default class JournalEntryDisplay extends Component {
         this.setState({ modalShow: false });
     }
 
-    handleShow = () => {
-        this.setState({ modalShow: true });
+    handleShowAndSetJournalId = (journalId) => {
+        this.setState({
+            modalShow: true,
+            journalId: journalId
+        });
     }
 
     async deleteJournalEntry(journalId) {
@@ -30,29 +32,32 @@ export default class JournalEntryDisplay extends Component {
     render() {
         if (this.state.hasJournals) {
             return (
-                this.props.journals.map((journal) => {
-                    return (
-                        <React.Fragment>
+                <React.Fragment>
+                     {this.props.journals.map((journal) => {   
+                         return (
+
                             <div className="standardBox">
-                                <Row noGutters={true}>
-                                    <p className="standardBox-title">{journal.date}</p>
-                                    <div className="ml-auto">
-                                        <Button className="button-delete mx-auto" onClick={this.handleShow}>
-                                            Delete
-                                        </Button>
-                                    </div>
-                                </Row>
-                                <hr />
-                                <Row noGutters={true} className="my-3">
-                                    {journal.entry}
-                                </Row>
-                                <hr />
-                                Physical Activity Level: {journal.physicalActivityLevel}
-                                <JournalProgressBar title="Stress" rating={journal.stressRating} />
-                                <JournalProgressBar title="Depression" rating={journal.depressionRating} />
-                                <JournalProgressBar title="Anxiety" rating={journal.anxietyRating} />
-                            </div >
-                            <Modal show={this.state.modalShow} onHide={this.handleClose} centered>
+                            <Row noGutters={true}>
+                                <p className="standardBox-title">{journal.date}</p>
+                                <div className="ml-auto">
+                                    <Button className="button-delete mx-auto" onClick={() => this.handleShowAndSetJournalId(journal._id)}>
+                                        Delete
+                                    </Button>
+                                </div>
+                            </Row>
+                            <hr />
+                            <Row noGutters={true} className="my-3">
+                                {journal.entry}
+                            </Row>
+                            <hr />
+                            Physical Activity Level: {journal.physicalActivityLevel}
+                            <JournalProgressBar title="Stress" rating={journal.stressRating} />
+                            <JournalProgressBar title="Depression" rating={journal.depressionRating} />
+                            <JournalProgressBar title="Anxiety" rating={journal.anxietyRating} />
+                        </div >
+                         )})}
+
+                            <Modal show={this.state.modalShow} onHide={this.handleClose} backdrop={'static'} centered>
                                 <Modal.Body className="m-3">
                                     <Row noGutters={true}>
                                         <p className="standardBox-title">Confirmation</p>
@@ -64,14 +69,13 @@ export default class JournalEntryDisplay extends Component {
                                         </p>
                                     </Row>
                                     <Row noGutters={true}>
-                                        <Button className="button-delete" onClick={() => this.deleteJournalEntry(journal._id)}>Yes, delete it!</Button>
+                                        <Button className="button-delete" onClick={() => this.deleteJournalEntry(this.state.journalId)}>Yes, delete it!</Button>
                                     </Row>
                                 </Modal.Body>
                             </Modal>
-                        </React.Fragment>
+                </React.Fragment>
+                    
                     )
-                })
-            )
-        }
+                }
     }
 }
